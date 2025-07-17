@@ -1,0 +1,19 @@
+{
+  "Timestamp": "2025-07-16T04:09:14.5990686Z",
+  "Summary": {
+    "IssuesBefore": 1,
+    "IssuesAfter": 0,
+    "IssuesFixed": 1,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Success": true,
+      "FixesApplied": 1,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": []
+}

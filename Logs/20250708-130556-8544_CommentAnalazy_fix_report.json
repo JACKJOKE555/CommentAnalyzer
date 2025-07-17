@@ -1,0 +1,68 @@
+{
+  "Summary": {
+    "RoundsExecuted": 1,
+    "IssuesAfter": 8,
+    "FixConverged": true,
+    "IssuesBefore": 8,
+    "FilesProcessed": 1
+  },
+  "Mode": "fix",
+  "FinalDiagnostics": [
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "FieldDeclaration 'TestField' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 6
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "MethodDeclaration 'TestMethod' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 8
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "PropertyDeclaration 'TestProperty' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 10
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "MethodDeclaration 'InterfaceMethod' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 15
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "FieldDeclaration 'StructField' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 20
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "ClassDeclaration 'DebugTestClass' 完全没有XML注释块",
+      "Rule": "PROJECT_TYPE_NO_COMMENT_BLOCK",
+      "Line": 4
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "InterfaceDeclaration 'IDebugTestInterface' 完全没有XML注释块",
+      "Rule": "PROJECT_TYPE_NO_COMMENT_BLOCK",
+      "Line": 13
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs",
+      "Message": "StructDeclaration 'DebugTestStruct' 完全没有XML注释块",
+      "Rule": "PROJECT_TYPE_NO_COMMENT_BLOCK",
+      "Line": 18
+    }
+  ],
+  "Timestamp": "2025-07-08 13:06:21",
+  "JobID": "20250708-130556-8544",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\DebugTestCase_Temp_b64714de.cs"
+    }
+  ]
+}

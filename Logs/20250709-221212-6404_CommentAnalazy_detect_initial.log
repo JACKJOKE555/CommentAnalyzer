@@ -1,0 +1,12 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709221212.csproj'...
+Analyze 'TempProject_20250709221212'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(10,20): warning PROJECT_MEMBER_MISSING_SUMMARY: FieldDeclaration 'TestField' 的XML注释中缺少 <summary> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(15,23): warning PROJECT_MEMBER_MISSING_SUMMARY: PropertyDeclaration 'TestProperty' 的XML注释中缺少 <summary> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(21,21): warning PROJECT_MEMBER_MISSING_SUMMARY: MethodDeclaration 'TestMethod' 的XML注释中缺少 <summary> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(5,18): warning PROJECT_TYPE_NO_COMMENT_BLOCK: ClassDeclaration 'TestClass6' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709221212.csproj' (in 3.4 s)
+
+3 PROJECT_MEMBER_MISSING_SUMMARY 成员缺少 <summary>
+1 PROJECT_TYPE_NO_COMMENT_BLOCK  类型缺少XML注释块
+
+4 diagnostics found

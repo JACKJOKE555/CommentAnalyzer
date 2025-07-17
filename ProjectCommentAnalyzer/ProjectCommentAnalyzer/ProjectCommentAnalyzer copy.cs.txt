@@ -1,0 +1,457 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Diagnostics;
+using System.Text.RegularExpressions;
+
+namespace ProjectCommentAnalyzer
+{
+    /// <summary>
+    /// ProjectCommentAnalyzer 注释规范分析器
+    /// </summary>
+    /// <remarks>
+    /// 功能: 检查类型、成员、参数、返回值、类型参数等的 XML 注释结构和内容，确保符合团队注释规范。
+    /// 架构层级: Roslyn 分析器
+    /// 模块: 注释规范检查
+    /// 继承/实现关系: DiagnosticAnalyzer
+    /// 依赖: Microsoft.CodeAnalysis
+    /// 扩展点: 可扩展更多注释结构、内容检查
+    /// 特性: 支持类型/成员/参数/返回值/类型参数注释检查
+    /// 重要逻辑: 通过 RegisterSyntaxNodeAction 注册类型和成员节点，分析其 XML 注释
+    /// 数据流:
+    /// - 语法树遍历类型和成员声明
+    /// - 检查 XML 注释节点
+    /// - 缺失或不合规时报告诊断
+    /// 示例: 见团队注释规范文档
+    /// </remarks>
+    [DiagnosticAnalyzer(LanguageNames.CSharp)]
+    public class ProjectCommentAnalyzerAnalyzer : DiagnosticAnalyzer
+    {
+        public const string MissingTypeSummaryId = "PROJECT_TYPE_MISSING_SUMMARY";
+        public const string MissingTypeRemarksId = "PROJECT_TYPE_MISSING_REMARKS";
+        public const string MissingTypeRemarksTagId = "PROJECT_TYPE_MISSING_REMARKS_TAG";
+        public const string MissingMemberSummaryId = "PROJECT_MEMBER_MISSING_SUMMARY";
+        public const string MissingMemberRemarksId = "PROJECT_MEMBER_MISSING_REMARKS";
+        public const string MissingMemberParamId = "PROJECT_MEMBER_MISSING_PARAM";
+        public const string MissingMemberReturnsId = "PROJECT_MEMBER_MISSING_RETURNS";
+        public const string MissingMemberTypeParamId = "PROJECT_MEMBER_MISSING_TYPEPARAM";
+        public const string NestedEnumDiagnosticId = "PROJECT_TYPE_NESTED_ENUM";
+        public const string NestedTypeDiagnosticId = "PROJECT_TYPE_NESTED_TYPE";
+        public const string MultiEnumFileDiagnosticId = "PROJECT_TYPE_MULTI_ENUM_FILE";
+
+        private static readonly DiagnosticDescriptor MissingTypeSummaryRule = new DiagnosticDescriptor(
+            MissingTypeSummaryId,
+            "类型缺少 <summary>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingTypeRemarksRule = new DiagnosticDescriptor(
+            MissingTypeRemarksId,
+            "类型缺少 <remarks>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingTypeRemarksTagRule = new DiagnosticDescriptor(
+            MissingTypeRemarksTagId,
+            "类型 <remarks> 缺少结构化条目",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingMemberSummaryRule = new DiagnosticDescriptor(
+            MissingMemberSummaryId,
+            "成员缺少 <summary>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingMemberRemarksRule = new DiagnosticDescriptor(
+            MissingMemberRemarksId,
+            "成员缺少 <remarks>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingMemberParamRule = new DiagnosticDescriptor(
+            MissingMemberParamId,
+            "成员缺少 <param>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingMemberReturnsRule = new DiagnosticDescriptor(
+            MissingMemberReturnsId,
+            "成员缺少 <returns>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor MissingMemberTypeParamRule = new DiagnosticDescriptor(
+            MissingMemberTypeParamId,
+            "成员缺少 <typeparam>",
+            "{0}",
+            "Documentation",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        private static readonly DiagnosticDescriptor NestedEnumRule = new DiagnosticDescriptor(
+            NestedEnumDiagnosticId,
+            "嵌套枚举类型",
+            "{0}",
+            "结构约束",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true
+        );
+
+        private static readonly DiagnosticDescriptor NestedTypeRule = new DiagnosticDescriptor(
+            NestedTypeDiagnosticId,
+            "嵌套类型",
+            "{0}",
+            "结构约束",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true
+        );
+
+        private static readonly DiagnosticDescriptor MultiEnumFileRule = new DiagnosticDescriptor(
+            MultiEnumFileDiagnosticId,
+            "同一文件多枚举",
+            "{0}",
+            "Design",
+            DiagnosticSeverity.Warning,
+            isEnabledByDefault: true
+        );
+
+        private static readonly string[] RequiredTypeRemarksTags = new[]
+        {
+            "功能:", "架构层级:", "模块:", "继承/实现关系:", "依赖:", "扩展点:", "特性:", "重要逻辑:", "数据流:", "使用示例:"
+        };
+
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics =>
+            ImmutableArray.Create(
+                MissingTypeSummaryRule,
+                MissingTypeRemarksRule,
+                MissingTypeRemarksTagRule,
+                MissingMemberSummaryRule,
+                MissingMemberRemarksRule,
+                MissingMemberParamRule,
+                MissingMemberReturnsRule,
+                MissingMemberTypeParamRule,
+                NestedEnumRule,
+                NestedTypeRule,
+                MultiEnumFileRule
+            );
+
+        public override void Initialize(AnalysisContext context)
+        {
+            context.EnableConcurrentExecution();
+            context.RegisterSyntaxNodeAction(AnalyzeType, SyntaxKind.ClassDeclaration, SyntaxKind.StructDeclaration, SyntaxKind.InterfaceDeclaration, SyntaxKind.EnumDeclaration);
+            
+            // Expanded to cover all relevant member types
+            context.RegisterSyntaxNodeAction(AnalyzeMember, 
+                SyntaxKind.MethodDeclaration, 
+                SyntaxKind.PropertyDeclaration, 
+                SyntaxKind.FieldDeclaration, 
+                SyntaxKind.EventDeclaration, 
+                SyntaxKind.EventFieldDeclaration, 
+                SyntaxKind.ConstructorDeclaration, 
+                SyntaxKind.DestructorDeclaration, 
+                SyntaxKind.OperatorDeclaration, 
+                SyntaxKind.DelegateDeclaration);
+                
+            context.RegisterSyntaxTreeAction(AnalyzeEnumFile);
+        }
+
+        private static string ToJson(string key, string value)
+        {
+            return $"\\\"{key}\\\":\\\"{value.Replace("\\", "\\\\").Replace("\"", "\\\"")}\\\"";
+        }
+        
+        private void ReportStructuredDiagnostic(SyntaxNodeAnalysisContext context, DiagnosticDescriptor rule, Location location, string memberName, string memberType, string missingElement, string detail = "")
+        {
+            var filePath = location.SourceTree?.FilePath ?? "unknown";
+            var lineNumber = location.GetLineSpan().StartLinePosition.Line + 1;
+
+            var jsonPayload = "{" +
+                $"{ToJson("RuleId", rule.Id)}, " +
+                $"{ToJson("Description", rule.Description.ToString())}, " +
+                $"{ToJson("MemberName", memberName)}, " +
+                $"{ToJson("MemberType", memberType)}, " +
+                $"{ToJson("MissingElement", missingElement)}, " +
+                $"{ToJson("Detail", detail)}, " +
+                $"{ToJson("FilePath", filePath)}, " +
+                $"\\\"LineNumber\\\":{lineNumber}" +
+            "}";
+
+            context.ReportDiagnostic(Diagnostic.Create(rule, location, jsonPayload));
+        }
+
+        private void ReportStructuredDiagnostic(SyntaxTreeAnalysisContext context, DiagnosticDescriptor rule, Location location, string memberName, string memberType, string missingElement, string detail = "")
+        {
+            var filePath = location.SourceTree?.FilePath ?? "unknown";
+            var lineNumber = location.GetLineSpan().StartLinePosition.Line + 1;
+
+            var jsonPayload = "{" +
+                $"{ToJson("RuleId", rule.Id)}, " +
+                $"{ToJson("Description", rule.Description.ToString())}, " +
+                $"{ToJson("MemberName", memberName)}, " +
+                $"{ToJson("MemberType", memberType)}, " +
+                $"{ToJson("MissingElement", missingElement)}, " +
+                $"{ToJson("Detail", detail)}, " +
+                $"{ToJson("FilePath", filePath)}, " +
+                $"\\\"LineNumber\\\":{lineNumber}" +
+            "}";
+
+            context.ReportDiagnostic(Diagnostic.Create(rule, location, jsonPayload));
+        }
+        
+        private void AnalyzeType(SyntaxNodeAnalysisContext context)
+        {
+            if (context.Node is TypeDeclarationSyntax typeDecl)
+            {
+                var docTrivia = typeDecl.GetLeadingTrivia()
+                    .Select(t => t.GetStructure())
+                    .OfType<DocumentationCommentTriviaSyntax>()
+                    .FirstOrDefault();
+                var xmlComment = docTrivia?.ToFullString() ?? string.Empty;
+                var typeName = typeDecl.Identifier.Text;
+
+                // 自动调试输出
+                try {
+                    System.IO.File.AppendAllText("D:/Unity/Project/Dropleton/Analyzers/FixTool/TypeTriviaDebug.log",
+                        $"[TYPE] {typeName} (优化):\n{xmlComment}\n-----------------\n");
+                } catch {}
+
+                CheckTypeComment(context, typeDecl, xmlComment, typeName);
+
+                // 检查嵌套类型（不允许类/结构/接口内部再定义类/结构/接口）
+                foreach (var member in typeDecl.Members)
+                {
+                    if (member is TypeDeclarationSyntax nestedType)
+                    {
+                        var parentName = typeDecl.Identifier.Text;
+                        ReportStructuredDiagnostic(context, NestedTypeRule, nestedType.Identifier.GetLocation(), nestedType.Identifier.Text, nestedType.Kind().ToString(), "NestedIn", parentName);
+                    }
+                }
+            }
+            else if (context.Node is EnumDeclarationSyntax enumDecl)
+            {
+                var docTrivia = enumDecl.GetLeadingTrivia()
+                    .Select(t => t.GetStructure())
+                    .OfType<DocumentationCommentTriviaSyntax>()
+                    .FirstOrDefault();
+                var xmlComment = docTrivia?.ToFullString() ?? string.Empty;
+                var typeName = enumDecl.Identifier.Text;
+
+                bool hasSummary = xmlComment.Contains("<summary>");
+                bool hasRemarks = xmlComment.Contains("<remarks>");
+
+                if (!hasSummary)
+                {
+                    ReportStructuredDiagnostic(context, MissingTypeSummaryRule, enumDecl.Identifier.GetLocation(), typeName, enumDecl.Kind().ToString(), "<summary>");
+                }
+
+                if (!hasRemarks)
+                {
+                    ReportStructuredDiagnostic(context, MissingTypeRemarksRule, enumDecl.Identifier.GetLocation(), typeName, enumDecl.Kind().ToString(), "<remarks>");
+                }
+                else
+                {
+                    foreach (var tag in RequiredTypeRemarksTags)
+                    {
+                        var tagPattern = $@"(^|\n)\s*///?\s*{System.Text.RegularExpressions.Regex.Escape(tag)}";
+                        if (!System.Text.RegularExpressions.Regex.IsMatch(xmlComment, tagPattern))
+                        {
+                           ReportStructuredDiagnostic(context, MissingTypeRemarksTagRule, enumDecl.Identifier.GetLocation(), typeName, enumDecl.Kind().ToString(), "<remarks>", tag);
+                        }
+                    }
+                }
+                
+                // 检查嵌套枚举
+                if (enumDecl.Parent is TypeDeclarationSyntax parentTypeDecl)
+                {
+                    ReportStructuredDiagnostic(context, NestedEnumRule, enumDecl.Identifier.GetLocation(), enumDecl.Identifier.Text, enumDecl.Kind().ToString(), "NestedIn", parentTypeDecl.Identifier.Text);
+                }
+            }
+        }
+
+        private void CheckTypeComment(SyntaxNodeAnalysisContext context, TypeDeclarationSyntax typeDecl, string xmlComment, string typeName)
+        {
+            if (!xmlComment.Contains("<summary>"))
+            {
+                ReportStructuredDiagnostic(context, MissingTypeSummaryRule, typeDecl.Identifier.GetLocation(), typeName, typeDecl.Kind().ToString(), "<summary>");
+                return;
+            }
+
+            if (!xmlComment.Contains("<remarks>"))
+            {
+                ReportStructuredDiagnostic(context, MissingTypeRemarksRule, typeDecl.Identifier.GetLocation(), typeName, typeDecl.Kind().ToString(), "<remarks>");
+            }
+            else
+            {
+                // Check for specific tags inside <remarks>
+                string[] requiredTags = { "功能:", "架构层级:", "模块:", "继承/实现关系:", "依赖:", "扩展点:", "特性:", "重要逻辑:", "数据流:", "使用示例:" };
+                foreach (var tag in requiredTags)
+                {
+                    if (!xmlComment.Contains(tag))
+                    {
+                        ReportStructuredDiagnostic(context, MissingTypeRemarksTagRule, typeDecl.Identifier.GetLocation(), typeName, typeDecl.Kind().ToString(), "<remarks>", $"Missing tag: {tag}");
+                    }
+                }
+            }
+        }
+
+        private void AnalyzeMember(SyntaxNodeAnalysisContext context)
+        {
+            var memberDecl = context.Node as MemberDeclarationSyntax;
+            if (memberDecl == null) return;
+
+            var docTrivia = memberDecl.GetLeadingTrivia()
+                .Select(t => t.GetStructure())
+                .OfType<DocumentationCommentTriviaSyntax>()
+                .FirstOrDefault();
+
+            var xmlComment = docTrivia?.ToFullString() ?? string.Empty;
+            var memberSymbol = context.SemanticModel.GetDeclaredSymbol(memberDecl);
+            var memberName = memberSymbol?.Name ?? (memberDecl as ConstructorDeclarationSyntax)?.Identifier.Text ?? "unknown";
+            
+            // 构造函数名特殊处理
+            if (memberDecl.IsKind(SyntaxKind.ConstructorDeclaration))
+            {
+                memberName = (memberDecl as ConstructorDeclarationSyntax).Identifier.Text + " Constructor";
+            }
+             else if (memberDecl.IsKind(SyntaxKind.DestructorDeclaration))
+            {
+                memberName = (memberDecl as DestructorDeclarationSyntax).Identifier.Text + " Destructor";
+            }
+
+            var parameters = GetParameters(memberDecl);
+            var typeParameters = GetTypeParameters(memberDecl);
+            var hasReturnValue = HasReturnValue(memberDecl);
+
+            CheckMemberComment(context, memberDecl, xmlComment, memberName, parameters, typeParameters, hasReturnValue);
+        }
+        
+        private IEnumerable<string> GetParameters(MemberDeclarationSyntax memberDecl)
+        {
+            switch (memberDecl)
+            {
+                case BaseMethodDeclarationSyntax method:
+                    return method.ParameterList?.Parameters.Select(p => p.Identifier.Text);
+                case DelegateDeclarationSyntax delegateDecl:
+                    return delegateDecl.ParameterList?.Parameters.Select(p => p.Identifier.Text);
+                default:
+                    return null;
+            }
+        }
+
+        private IEnumerable<string> GetTypeParameters(MemberDeclarationSyntax memberDecl)
+        {
+            switch (memberDecl)
+            {
+                case MethodDeclarationSyntax method:
+                    return method.TypeParameterList?.Parameters.Select(p => p.Identifier.Text);
+                case DelegateDeclarationSyntax delegateDecl:
+                    return delegateDecl.TypeParameterList?.Parameters.Select(p => p.Identifier.Text);
+                default:
+                    return null;
+            }
+        }
+
+        private bool HasReturnValue(MemberDeclarationSyntax memberDecl)
+        {
+            switch (memberDecl)
+            {
+                case MethodDeclarationSyntax method:
+                    return method.ReturnType.ToString() != "void";
+                case DelegateDeclarationSyntax delegateSyntax:
+                    return delegateSyntax.ReturnType.ToString() != "void";
+                case PropertyDeclarationSyntax _:
+                case FieldDeclarationSyntax _:
+                    return true; // Properties/fields conceptually have a "return" value but don't use <returns> tag. Let CheckMemberComment decide.
+                default:
+                    return false;
+            }
+        }
+
+        private void CheckMemberComment(SyntaxNodeAnalysisContext context, MemberDeclarationSyntax memberDecl, string xmlComment, string memberName, IEnumerable<string> parameters, IEnumerable<string> typeParameters, bool hasReturnValue)
+        {
+            if (!xmlComment.Contains("<summary>"))
+            {
+                ReportStructuredDiagnostic(context, MissingMemberSummaryRule, memberDecl.GetLocation(), memberName, memberDecl.Kind().ToString(), "<summary>");
+            }
+
+            if (!xmlComment.Contains("<remarks>"))
+            {
+                ReportStructuredDiagnostic(context, MissingMemberRemarksRule, memberDecl.GetLocation(), memberName, memberDecl.Kind().ToString(), "<remarks>");
+            }
+
+            if (parameters != null)
+            {
+                foreach (var paramName in parameters)
+                {
+                    if (!xmlComment.Contains($"<param name=\"{paramName}\">"))
+                    {
+                        ReportStructuredDiagnostic(context, MissingMemberParamRule, memberDecl.GetLocation(), memberName, memberDecl.Kind().ToString(), $"<param>", paramName);
+                    }
+                }
+            }
+
+            if (typeParameters != null)
+            {
+                foreach (var typeParamName in typeParameters)
+                {
+                    if (!xmlComment.Contains($"<typeparam name=\"{typeParamName}\">"))
+                    {
+                        ReportStructuredDiagnostic(context, MissingMemberTypeParamRule, memberDecl.GetLocation(), memberName, memberDecl.Kind().ToString(), $"<typeparam>", typeParamName);
+                    }
+                }
+            }
+
+            // Only check for <returns> on methods and delegates that actually return something.
+            bool needsReturnsTag = (memberDecl.IsKind(SyntaxKind.MethodDeclaration) || memberDecl.IsKind(SyntaxKind.DelegateDeclaration)) && hasReturnValue;
+            if (needsReturnsTag && !xmlComment.Contains("<returns>"))
+            {
+                ReportStructuredDiagnostic(context, MissingMemberReturnsRule, memberDecl.GetLocation(), memberName, memberDecl.Kind().ToString(), "<returns>");
+            }
+        }
+        
+        private void AnalyzeEnumFile(SyntaxTreeAnalysisContext context)
+        {
+            var root = context.Tree.GetRoot(context.CancellationToken);
+            var enumsInFile = root.DescendantNodes().OfType<EnumDeclarationSyntax>().ToList();
+            if (enumsInFile.Count > 1)
+            {
+                var enumNames = string.Join(", ", enumsInFile.Select(e => e.Identifier.Text));
+                var firstEnum = enumsInFile.First();
+                
+                var location = firstEnum.GetLocation();
+                var fileName = System.IO.Path.GetFileName(location.SourceTree.FilePath);
+
+                ReportStructuredDiagnostic(
+                    context,
+                    MultiEnumFileRule,
+                    location,
+                    fileName,
+                    "File",
+                    "MultipleEnums",
+                    enumNames
+                );
+            }
+        }
+    }
+}
+
+

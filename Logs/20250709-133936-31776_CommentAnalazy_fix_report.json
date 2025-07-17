@@ -1,0 +1,26 @@
+{
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_TYPE_MULTI_ENUM_FILE",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_013_MultiEnumFile.cs",
+      "Line": 16,
+      "Message": "文件 'TC_F_013_MultiEnumFile.cs' 中定义了多个枚举，应将每个枚举置于其独立文件中"
+    }
+  ],
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesBefore": 3,
+    "FixConverged": true,
+    "IssuesAfter": 4,
+    "FilesProcessed": 1
+  },
+  "JobID": "20250709-133936-31776",
+  "Timestamp": "2025-07-09 13:40:39",
+  "Mode": "fix",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_013_MultiEnumFile.cs"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "Mode": "fix",
+  "Timestamp": "2025-07-15 23:45:03",
+  "Summary": {
+    "IssuesBefore": 2,
+    "FixConverged": true,
+    "IssuesAfter": 4,
+    "FilesProcessed": 1,
+    "RoundsExecuted": 2
+  },
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS",
+      "Line": 4,
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Message": "ClassDeclaration 'TestClass3' 的XML注释中缺少 <remarks> 标签"
+    }
+  ],
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs"
+    }
+  ],
+  "JobID": "20250715-234346-21928"
+}

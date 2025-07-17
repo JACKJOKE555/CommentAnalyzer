@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="2" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250708230313" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708230313.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="18" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="26" Character="16" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

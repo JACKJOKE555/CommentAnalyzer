@@ -1,0 +1,38 @@
+{
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_PARAM",
+      "Message": "方法 'Multiply' 的XML注释中缺少对参数 'a' 的 <param> 注释",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_009_MemberMissingReturns.cs",
+      "Line": 24
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_PARAM",
+      "Message": "方法 'Multiply' 的XML注释中缺少对参数 'b' 的 <param> 注释",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_009_MemberMissingReturns.cs",
+      "Line": 24
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_RETURNS",
+      "Message": "方法 'Multiply' 有返回值，但其XML注释中缺少 <returns> 标签",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_009_MemberMissingReturns.cs",
+      "Line": 24
+    }
+  ],
+  "JobID": "20250709-121944-21052",
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesAfter": 3,
+    "FilesProcessed": 1,
+    "FixConverged": true,
+    "IssuesBefore": 5
+  },
+  "Timestamp": "2025-07-09 12:20:58",
+  "Files": [
+    {
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_009_MemberMissingReturns.cs",
+      "Modified": false
+    }
+  ],
+  "Mode": "fix"
+}

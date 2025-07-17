@@ -1,0 +1,1155 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.MSBuild;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Text;
+using System.Diagnostics;
+using System.Xml.Linq;
+using System.Text.Json;
+
+namespace XmlDocRoslynTool
+{
+    /// <summary>
+    /// XmlDocRoslynTool - A dedicated .NET tool for fixing C# XML documentation comments.
+    /// This tool is the core of the 'fix' mode in the CommentAnalyzer toolchain.
+    /// It operates in a self-contained, verifiable "Analyze -> Fix -> Re-analyze -> Report" workflow.
+    /// </summary>
+    public class Program
+    {
+        // 调试开关，默认关闭。需调试时设为true。
+        private static readonly bool DebugTypeNodeMatch = true;
+
+        /// <summary>
+        /// Application entry point.
+        /// Orchestrates the entire fix and verification workflow.
+        /// </summary>
+        /// <param name="args">Command-line arguments.</param>
+        static async Task Main(string[] args)
+        {
+            // 参数解析
+            string projectPath = null;
+            string analyzerPath = null;
+            string msbuildPath = null;
+            string xmlLogPath = null;
+            string files = null;
+
+            foreach (var arg in args)
+            {
+                if (arg.StartsWith("--projectPath="))
+                    projectPath = arg.Substring("--projectPath=".Length).Trim('"');
+                else if (arg.StartsWith("--analyzerPath="))
+                    analyzerPath = arg.Substring("--analyzerPath=".Length).Trim('"');
+                else if (arg.StartsWith("--msbuildPath="))
+                    msbuildPath = arg.Substring("--msbuildPath=".Length).Trim('"');
+                else if (arg.StartsWith("--xmlLogPath="))
+                    xmlLogPath = arg.Substring("--xmlLogPath=".Length).Trim('"');
+                else if (arg.StartsWith("--files="))
+                    files = arg.Substring("--files=".Length).Trim('"');
+            }
+
+            if (string.IsNullOrEmpty(projectPath) || string.IsNullOrEmpty(analyzerPath) || string.IsNullOrEmpty(msbuildPath) || string.IsNullOrEmpty(xmlLogPath))
+            {
+                Console.WriteLine("Usage: XmlDocRoslynTool --projectPath=<csproj> --analyzerPath=<dll> --msbuildPath=<msbuild_dir> --xmlLogPath=<output.xml> [--files=<file1;file2>]");
+                return;
+            }
+
+            try
+            {
+                Console.WriteLine("[INFO] Starting XmlDocRoslynTool fix workflow...");
+                
+                // Phase 1: Pre-analysis - Generate initial diagnostics
+                Console.WriteLine("[PHASE 1] Running pre-analysis...");
+                var preAnalysisLog = xmlLogPath.Replace(".xml", "_pre.xml");
+                await RunRoslynatorAnalysis(projectPath, analyzerPath, msbuildPath, preAnalysisLog);
+                
+                if (!File.Exists(preAnalysisLog))
+                {
+                    Console.WriteLine("[ERROR] Pre-analysis failed - no diagnostics log generated");
+                    return;
+                }
+
+                // Phase 2: Parse diagnostics and identify files to fix
+                Console.WriteLine("[PHASE 2] Parsing diagnostics...");
+                var diagnostics = ParseDiagnosticsXml(preAnalysisLog);
+                var filesToFix = GetFilesToFix(diagnostics, files);
+                
+                if (!filesToFix.Any())
+                {
+                    Console.WriteLine("[INFO] No issues found that require fixing");
+                    return;
+                }
+
+                Console.WriteLine($"[INFO] Found {diagnostics.Count} diagnostics across {filesToFix.Count} files");
+
+                // Phase 3: Fix the code files
+                Console.WriteLine("[PHASE 3] Applying fixes...");
+                var fixResults = await ApplyFixes(projectPath, filesToFix, diagnostics);
+                
+                // Phase 4: Post-analysis - Generate final diagnostics
+                Console.WriteLine("[PHASE 4] Running post-analysis...");
+                var postAnalysisLog = xmlLogPath.Replace(".xml", "_post.xml");
+                await RunRoslynatorAnalysis(projectPath, analyzerPath, msbuildPath, postAnalysisLog);
+                
+                // Phase 5: Generate fix report
+                Console.WriteLine("[PHASE 5] Generating fix report...");
+                var reportPath = xmlLogPath.Replace(".xml", "_report.json");
+                await GenerateFixReport(preAnalysisLog, postAnalysisLog, fixResults, reportPath);
+                
+                Console.WriteLine($"[SUCCESS] Fix workflow completed. Report: {reportPath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] Fix workflow failed: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        private static async Task RunRoslynatorAnalysis(string projectPath, string analyzerPath, string msbuildPath, string outputPath)
+        {
+            // Roslynator CLI 路径 - 使用相对于当前exe的路径
+            var exeDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var roslynatorPath = Path.Combine(exeDir, "..", "..", "..", "..", ".nuget", "packages", "roslynator.commandline", "0.10.1", "tools", "net48", "Roslynator.exe");
+            roslynatorPath = Path.GetFullPath(roslynatorPath);
+            
+            if (!File.Exists(roslynatorPath))
+            {
+                throw new FileNotFoundException($"Roslynator CLI not found at {roslynatorPath}");
+            }
+
+            // 组装命令行参数
+            var roslynatorArgs = $"analyze \"{projectPath}\" -a \"{analyzerPath}\" -o \"{outputPath}\" -m \"{msbuildPath}\" --verbosity q";
+            Console.WriteLine($"[INFO] Running: {roslynatorPath} {roslynatorArgs}");
+
+            var process = new Process();
+            process.StartInfo.FileName = roslynatorPath;
+            process.StartInfo.Arguments = roslynatorArgs;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.CreateNoWindow = true;
+
+            process.Start();
+            string output = await process.StandardOutput.ReadToEndAsync();
+            string error = await process.StandardError.ReadToEndAsync();
+            process.WaitForExit();
+
+            if (!string.IsNullOrWhiteSpace(output))
+                Console.WriteLine($"[Roslynator Output] {output}");
+            if (!string.IsNullOrWhiteSpace(error))
+                Console.WriteLine($"[Roslynator Error] {error}");
+
+            if (!File.Exists(outputPath))
+            {
+                Console.WriteLine($"[WARNING] Analysis completed but no XML log generated at: {outputPath}");
+            }
+        }
+
+        private static List<DiagnosticInfo> ParseDiagnosticsXml(string xmlPath)
+        {
+            var diagnostics = new List<DiagnosticInfo>();
+            
+            try
+            {
+                var doc = XDocument.Load(xmlPath);
+                var diagnosticElements = doc.Descendants("Diagnostic")
+                    .Where(d => d.Attribute("Id")?.Value?.StartsWith("PROJECT_") == true);
+
+                foreach (var element in diagnosticElements)
+                {
+                    var id = element.Attribute("Id")?.Value ?? "";
+                    var message = element.Element("Message")?.Value ?? "";
+                    var filePathElement = element.Element("FilePath");
+                    var locationElement = element.Element("Location");
+                    
+                    if (!string.IsNullOrEmpty(id) && id.StartsWith("PROJECT_") && filePathElement != null && locationElement != null)
+                    {
+                        var diagnostic = new DiagnosticInfo
+                        {
+                            Id = id,
+                            File = filePathElement.Value,
+                            Line = int.TryParse(locationElement.Attribute("Line")?.Value, out var line) ? line : 0,
+                            Column = int.TryParse(locationElement.Attribute("Character")?.Value, out var column) ? column : 0,
+                            Message = message
+                        };
+                        
+                        diagnostics.Add(diagnostic);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] Failed to parse diagnostics XML: {ex.Message}");
+            }
+            
+            return diagnostics;
+        }
+
+        private static Dictionary<string, List<DiagnosticInfo>> GetFilesToFix(List<DiagnosticInfo> diagnostics, string filesFilter)
+        {
+            var filesToFix = new Dictionary<string, List<DiagnosticInfo>>();
+            
+            HashSet<string> allowedFiles = null;
+            if (!string.IsNullOrEmpty(filesFilter))
+            {
+                allowedFiles = new HashSet<string>(filesFilter.Split(';'), StringComparer.OrdinalIgnoreCase);
+            }
+            
+            foreach (var diagnostic in diagnostics)
+            {
+                if (allowedFiles != null && !allowedFiles.Any(f => diagnostic.File.Equals(f, StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+                
+                if (!filesToFix.ContainsKey(diagnostic.File))
+                {
+                    filesToFix[diagnostic.File] = new List<DiagnosticInfo>();
+                }
+                filesToFix[diagnostic.File].Add(diagnostic);
+            }
+            
+            return filesToFix;
+        }
+
+        private static async Task<Dictionary<string, FixResult>> ApplyFixes(string projectPath, Dictionary<string, List<DiagnosticInfo>> filesToFix, List<DiagnosticInfo> allDiagnostics)
+        {
+            var results = new Dictionary<string, FixResult>();
+            
+            foreach (var kvp in filesToFix)
+            {
+                var filePath = kvp.Key;
+                var diagnosticsForFile = kvp.Value;
+                
+                Console.WriteLine($"[INFO] Processing file: {Path.GetFileName(filePath)} ({diagnosticsForFile.Count} issues)");
+                
+                try
+                {
+                    var result = await FixSingleFileSimple(filePath, diagnosticsForFile);
+                    results[filePath] = result;
+                    
+                    if (result.Success)
+                    {
+                        Console.WriteLine($"[SUCCESS] Fixed {result.FixesApplied} issues in {Path.GetFileName(filePath)}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[FAIL] Failed to fix {Path.GetFileName(filePath)}: {result.ErrorMessage}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[ERROR] Exception while fixing {Path.GetFileName(filePath)}: {ex.Message}");
+                    results[filePath] = new FixResult { Success = false, ErrorMessage = ex.Message };
+                }
+            }
+            
+            return results;
+        }
+
+        private static async Task<FixResult> FixSingleFileSimple(string filePath, List<DiagnosticInfo> diagnostics)
+        {
+            var result = new FixResult { FilePath = filePath };
+            
+            try
+            {
+                var sourceText = await File.ReadAllTextAsync(filePath);
+                var syntaxTree = CSharpSyntaxTree.ParseText(sourceText, path: filePath);
+                var root = await syntaxTree.GetRootAsync();
+                
+                // Create a compilation for semantic analysis
+                var compilation = CSharpCompilation.Create("TempAssembly")
+                    .AddReferences(MetadataReference.CreateFromFile(typeof(object).Assembly.Location))
+                    .AddSyntaxTrees(syntaxTree);
+                
+                var semanticModel = compilation.GetSemanticModel(syntaxTree);
+                
+                // Find nodes that need documentation based on the diagnostic list
+                var analyzer = new DocumentationAnalyzer(semanticModel, diagnostics);
+                analyzer.Visit(root);
+                
+                if (analyzer.NodesToFix.Any())
+                {
+                    var rewriter = new XmlDocRewriter(analyzer.NodesToFix, diagnostics);
+                    var newRoot = rewriter.Visit(root);
+                    
+                    if (rewriter.ChangesMade)
+                    {
+                        var newText = newRoot.ToFullString();
+                        await File.WriteAllTextAsync(filePath, newText);
+                        result.Success = true;
+                        result.FixesApplied = analyzer.NodesToFix.Count;
+                    }
+                    else
+                    {
+                        result.Success = true;
+                        result.FixesApplied = 0;
+                    }
+                }
+                else
+                {
+                    result.Success = true;
+                    result.FixesApplied = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.ErrorMessage = ex.Message;
+            }
+            
+            return result;
+        }
+
+        private static async Task GenerateFixReport(string preAnalysisLog, string postAnalysisLog, Dictionary<string, FixResult> fixResults, string reportPath)
+        {
+            var preDiagnostics = File.Exists(preAnalysisLog) ? ParseDiagnosticsXml(preAnalysisLog) : new List<DiagnosticInfo>();
+            var postDiagnostics = File.Exists(postAnalysisLog) ? ParseDiagnosticsXml(postAnalysisLog) : new List<DiagnosticInfo>();
+            
+            var report = new
+            {
+                Timestamp = DateTime.UtcNow,
+                Summary = new
+                {
+                    IssuesBefore = preDiagnostics.Count,
+                    IssuesAfter = postDiagnostics.Count,
+                    IssuesFixed = Math.Max(0, preDiagnostics.Count - postDiagnostics.Count),
+                    FilesProcessed = fixResults.Count,
+                    FilesSuccessful = fixResults.Values.Count(r => r.Success)
+                },
+                FileResults = fixResults.Values.ToList(),
+                RemainingIssues = postDiagnostics.Select(d => new { d.Id, d.File, d.Line, d.Message }).ToList()
+            };
+            
+            var json = System.Text.Json.JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true });
+            await File.WriteAllTextAsync(reportPath, json);
+        }
+
+        // Data classes for diagnostics and results
+        internal class DiagnosticInfo
+        {
+            public string Id { get; set; } = "";
+            public string File { get; set; } = "";
+            public int Line { get; set; }
+            public int Column { get; set; }
+            public string Message { get; set; } = "";
+        }
+
+        internal class FixResult
+        {
+            public string FilePath { get; set; } = "";
+            public bool Success { get; set; }
+            public int FixesApplied { get; set; }
+            public string ErrorMessage { get; set; } = "";
+        }
+        /// <summary>
+        /// First pass: Walks the tree with a valid SemanticModel to find nodes that need fixing based on diagnostics.
+        /// Does NOT modify the tree.
+        /// </summary>
+        internal class DocumentationAnalyzer : CSharpSyntaxWalker
+    {
+        private readonly SemanticModel _semanticModel;
+        private readonly List<DiagnosticInfo> _diagnostics;
+        private readonly HashSet<int> _diagnosticLines;
+        public Dictionary<SyntaxNode, ISymbol> NodesToFix { get; } = new Dictionary<SyntaxNode, ISymbol>();
+
+        public DocumentationAnalyzer(SemanticModel semanticModel, List<DiagnosticInfo> diagnostics)
+        {
+            _semanticModel = semanticModel;
+            _diagnostics = diagnostics;
+            _diagnosticLines = new HashSet<int>(diagnostics.Select(d => d.Line));
+        }
+
+        public override void VisitClassDeclaration(ClassDeclarationSyntax node)
+        {
+            var line = node.GetLocation().GetLineSpan().StartLinePosition.Line + 1;
+            var name = node.Identifier.Text;
+            // 始终输出所有类型节点
+            if (DebugTypeNodeMatch)
+            {
+                Console.WriteLine($"[DEBUG_TYPE_NODE_ALL] 类型节点: {name} 声明行: {line}");
+            }
+            base.VisitClassDeclaration(node);
+        }
+
+        public override void VisitStructDeclaration(StructDeclarationSyntax structDeclaration)
+        {
+            CheckAndAddNode(structDeclaration);
+            base.VisitStructDeclaration(structDeclaration);
+        }
+
+        public override void VisitInterfaceDeclaration(InterfaceDeclarationSyntax interfaceDeclaration)
+        {
+            CheckAndAddNode(interfaceDeclaration);
+            base.VisitInterfaceDeclaration(interfaceDeclaration);
+        }
+
+        public override void VisitEnumDeclaration(EnumDeclarationSyntax enumDeclaration)
+        {
+            CheckAndAddNode(enumDeclaration);
+            base.VisitEnumDeclaration(enumDeclaration);
+        }
+
+        public override void VisitMethodDeclaration(MethodDeclarationSyntax methodDeclaration)
+        {
+            CheckAndAddNode(methodDeclaration);
+            base.VisitMethodDeclaration(methodDeclaration);
+        }
+
+        public override void VisitPropertyDeclaration(PropertyDeclarationSyntax propertyDeclaration)
+        {
+            CheckAndAddNode(propertyDeclaration);
+            base.VisitPropertyDeclaration(propertyDeclaration);
+        }
+
+        public override void VisitFieldDeclaration(FieldDeclarationSyntax fieldDeclaration)
+        {
+            CheckAndAddNode(fieldDeclaration);
+            base.VisitFieldDeclaration(fieldDeclaration);
+        }
+
+        public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax constructorDeclaration)
+        {
+            CheckAndAddNode(constructorDeclaration);
+            base.VisitConstructorDeclaration(constructorDeclaration);
+        }
+
+        public override void VisitEventDeclaration(EventDeclarationSyntax eventDeclaration)
+        {
+            CheckAndAddNode(eventDeclaration);
+            base.VisitEventDeclaration(eventDeclaration);
+        }
+
+        public override void VisitEventFieldDeclaration(EventFieldDeclarationSyntax eventFieldDeclaration)
+        {
+            CheckAndAddNode(eventFieldDeclaration);
+            base.VisitEventFieldDeclaration(eventFieldDeclaration);
+        }
+
+        public override void VisitDelegateDeclaration(DelegateDeclarationSyntax delegateDeclaration)
+        {
+            CheckAndAddNode(delegateDeclaration);
+            base.VisitDelegateDeclaration(delegateDeclaration);
+        }
+
+        public override void VisitDestructorDeclaration(DestructorDeclarationSyntax destructorDeclaration)
+        {
+            CheckAndAddNode(destructorDeclaration);
+            base.VisitDestructorDeclaration(destructorDeclaration);
+        }
+
+        public override void VisitOperatorDeclaration(OperatorDeclarationSyntax operatorDeclaration)
+        {
+            CheckAndAddNode(operatorDeclaration);
+            base.VisitOperatorDeclaration(operatorDeclaration);
+        }
+
+        public override void VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax conversionOperatorDeclaration)
+        {
+            CheckAndAddNode(conversionOperatorDeclaration);
+            base.VisitConversionOperatorDeclaration(conversionOperatorDeclaration);
+        }
+
+        public override void VisitIndexerDeclaration(IndexerDeclarationSyntax indexerDeclaration)
+        {
+            CheckAndAddNode(indexerDeclaration);
+            base.VisitIndexerDeclaration(indexerDeclaration);
+        }
+
+        private void CheckAndAddNode(SyntaxNode node)
+        {
+            var line = node.GetLocation().GetLineSpan().StartLinePosition.Line + 1;
+            var match = _diagnosticLines.Contains(line);
+            if (DebugTypeNodeMatch)
+            {
+                Console.WriteLine($"[DEBUG_TYPE_NODE_MATCH] 节点: {node.Kind()} 声明行: {line} 诊断行: [{string.Join(",", _diagnosticLines)}] 命中: {match}");
+            }
+            if (!match)
+                return;
+                
+            // Debug output for specific lines (can be enabled when needed)
+            // var debugLines = new[] { 24, 27, 30, 35, 41, 44, 47, 134, 155 };
+            // if (debugLines.Contains(line))
+            // {
+            //     Console.WriteLine($"[DEBUG] Processing line {line}: {node.GetType().Name}");
+            // }
+                
+            // For incremental fixes, we need to process nodes that have issues regardless of whether they have comments
+            // The old logic was: if (hasDoc) return; - this prevented incremental fixes
+            // New logic: always check if the node should be processed based on diagnostics
+                
+            // Check if should have documentation
+            bool shouldHaveDoc = ShouldHaveDocumentation(node);
+            if (!shouldHaveDoc)
+                return;
+
+            var symbol = _semanticModel.GetDeclaredSymbol(node);
+            if (symbol != null)
+            {
+                Console.WriteLine($"[ANALYZER] Adding node for processing: {symbol.Name} at line {line}");
+                NodesToFix[node] = symbol;
+            }
+            else
+            {
+                // For field declarations, we need to get the symbol from the variable declarator
+                if (node is FieldDeclarationSyntax fieldDecl)
+                {
+                    var variable = fieldDecl.Declaration.Variables.FirstOrDefault();
+                    if (variable != null)
+                    {
+                        var fieldSymbol = _semanticModel.GetDeclaredSymbol(variable);
+                        if (fieldSymbol != null)
+                        {
+                            Console.WriteLine($"[ANALYZER] Adding field node for processing: {fieldSymbol.Name} at line {line}");
+                            NodesToFix[node] = fieldSymbol;
+                        }
+                    }
+                }
+                else if (node is EventFieldDeclarationSyntax eventFieldDecl)
+                {
+                    // For event field declarations, similar handling
+                    var variable = eventFieldDecl.Declaration.Variables.FirstOrDefault();
+                    if (variable != null)
+                    {
+                        var eventSymbol = _semanticModel.GetDeclaredSymbol(variable);
+                        if (eventSymbol != null)
+                        {
+                            Console.WriteLine($"[ANALYZER] Adding event field node for processing: {eventSymbol.Name} at line {line}");
+                            NodesToFix[node] = eventSymbol;
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool ShouldHaveDocumentation(SyntaxNode node)
+        {
+            var modifiers = GetModifiers(node);
+            
+            // 根据项目规则，所有成员都需要注释，包括private成员
+            // 这与分析器的策略保持一致
+            
+            // For types, all types should have documentation
+            if (node is TypeDeclarationSyntax)
+            {
+                return true;
+            }
+
+            // For interface members, they are implicitly public
+            if (node.Parent is InterfaceDeclarationSyntax)
+            {
+                return true;
+            }
+
+            // For all other members (including private), require documentation
+            // This matches the analyzer's policy of checking all accessibility levels
+            return true;
+        }
+
+        private SyntaxTokenList GetModifiers(SyntaxNode node)
+        {
+            return node switch
+            {
+                ClassDeclarationSyntax classDecl => classDecl.Modifiers,
+                StructDeclarationSyntax structDecl => structDecl.Modifiers,
+                InterfaceDeclarationSyntax interfaceDecl => interfaceDecl.Modifiers,
+                EnumDeclarationSyntax enumDecl => enumDecl.Modifiers,
+                MethodDeclarationSyntax methodDecl => methodDecl.Modifiers,
+                PropertyDeclarationSyntax propertyDecl => propertyDecl.Modifiers,
+                FieldDeclarationSyntax fieldDecl => fieldDecl.Modifiers,
+                ConstructorDeclarationSyntax constructorDecl => constructorDecl.Modifiers,
+                EventDeclarationSyntax eventDecl => eventDecl.Modifiers,
+                EventFieldDeclarationSyntax eventFieldDecl => eventFieldDecl.Modifiers,
+                DelegateDeclarationSyntax delegateDecl => delegateDecl.Modifiers,
+                DestructorDeclarationSyntax destructorDecl => destructorDecl.Modifiers,
+                OperatorDeclarationSyntax operatorDecl => operatorDecl.Modifiers,
+                ConversionOperatorDeclarationSyntax conversionDecl => conversionDecl.Modifiers,
+                IndexerDeclarationSyntax indexerDecl => indexerDecl.Modifiers,
+                _ => default
+            };
+        }
+
+        private bool HasDocumentationComment(SyntaxNode node)
+        {
+            var leadingTrivia = node.GetLeadingTrivia();
+            return leadingTrivia.Any(t => t.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia) ||
+                                         t.IsKind(SyntaxKind.MultiLineDocumentationCommentTrivia));
+        }
+        }
+
+        /// <summary>
+        /// Second pass: Rewrites the tree based on the nodes identified by the DocumentationAnalyzer.
+        /// Enhanced to support incremental fixes for existing comments with missing tags.
+        /// </summary>
+        internal class XmlDocRewriter : CSharpSyntaxRewriter
+    {
+        private readonly Dictionary<SyntaxNode, ISymbol> _nodesToFix;
+        private readonly List<DiagnosticInfo> _diagnostics;
+        public bool ChangesMade { get; private set; }
+
+        public XmlDocRewriter(Dictionary<SyntaxNode, ISymbol> nodesToFix, List<DiagnosticInfo> diagnostics = null)
+        {
+            _nodesToFix = nodesToFix;
+            _diagnostics = diagnostics ?? new List<DiagnosticInfo>();
+        }
+
+        public override SyntaxNode? Visit(SyntaxNode? node)
+        {
+            if (node != null && _nodesToFix.TryGetValue(node, out var symbol))
+            {
+                ChangesMade = true;
+                var newNode = AddOrUpdateDocumentationIncremental(node, symbol);
+                return newNode;
+            }
+            return base.Visit(node);
+        }
+
+        private SyntaxNode AddOrUpdateDocumentationIncremental(SyntaxNode node, ISymbol symbol)
+        {
+            var existingComment = ExtractExistingDocumentationComment(node);
+            
+            if (string.IsNullOrEmpty(existingComment))
+            {
+                // No existing comment, generate a complete new one
+                Console.WriteLine($"[FIX] Adding complete comment for {symbol.Name}");
+                return AddCompleteDocumentation(node, symbol);
+            }
+            else
+            {
+                // Existing comment found, apply incremental fixes
+                Console.WriteLine($"[FIX] Applying incremental fixes for {symbol.Name}");
+                return ApplyIncrementalFixes(node, symbol, existingComment);
+            }
+        }
+
+        private SyntaxNode AddCompleteDocumentation(SyntaxNode node, ISymbol symbol)
+        {
+            var idealCommentText = GenerateIdealComment(symbol);
+            var idealTriviaList = SyntaxFactory.ParseLeadingTrivia(idealCommentText);
+            var leadingTrivia = node.GetLeadingTrivia();
+            return node.WithLeadingTrivia(leadingTrivia.InsertRange(0, idealTriviaList));
+        }
+
+        private SyntaxNode ApplyIncrementalFixes(SyntaxNode node, ISymbol symbol, string existingComment)
+        {
+            var modifiedComment = existingComment;
+            var relevantDiagnostics = GetRelevantDiagnostics(node);
+            
+            foreach (var diagnostic in relevantDiagnostics)
+            {
+                Console.WriteLine($"[FIX] Processing diagnostic: {diagnostic.Id} for {symbol.Name}");
+                
+                if (diagnostic.Id.Contains("_MISSING_PARAM"))
+                {
+                    modifiedComment = AddMissingParamTags(modifiedComment, symbol);
+                }
+                else if (diagnostic.Id.Contains("_MISSING_RETURNS"))
+                {
+                    modifiedComment = AddMissingReturnsTag(modifiedComment, symbol);
+                }
+                else if (diagnostic.Id.Contains("_MISSING_REMARKS") || diagnostic.Id.Contains("_MISSING_REMARKS_TAG"))
+                {
+                    modifiedComment = AddMissingRemarksTag(modifiedComment, symbol);
+                }
+                else if (diagnostic.Id.Contains("_MISSING_SUMMARY"))
+                {
+                    modifiedComment = AddMissingSummaryTag(modifiedComment, symbol);
+                }
+                else if (diagnostic.Id.Contains("_MISSING_TYPEPARAM"))
+                {
+                    modifiedComment = AddMissingTypeParamTags(modifiedComment, symbol);
+                }
+            }
+
+            // 类型节点，确保<remarks>结构化条目完整，允许±1行偏移匹配
+            if (symbol.Kind == SymbolKind.NamedType)
+            {
+                // 诊断行号与节点声明行号允许±1行偏移
+                var nodeLine = node.GetLocation().GetLineSpan().StartLinePosition.Line + 1;
+                var diagLines = relevantDiagnostics.Select(d => d.Line).ToList();
+                bool match = diagLines.Any(diagLine => Math.Abs(diagLine - nodeLine) <= 1);
+                if (DebugTypeNodeMatch)
+                {
+                    Console.WriteLine($"[DEBUG_TYPE_NODE] 类型节点: {symbol.Name} 声明行: {nodeLine} 诊断行: {string.Join(",", diagLines)} 匹配: {match}");
+                }
+                if (match)
+                {
+                    var before = modifiedComment;
+                    modifiedComment = EnsureRemarksStructured(modifiedComment, symbol);
+                    if (DebugTypeNodeMatch)
+                    {
+                        if (before != modifiedComment)
+                            Console.WriteLine($"[DEBUG_TYPE_NODE] EnsureRemarksStructured补全类型 {symbol.Name} <remarks>，补全前:\n{before}\n补全后:\n{modifiedComment}");
+                        else
+                            Console.WriteLine($"[DEBUG_TYPE_NODE] EnsureRemarksStructured未变更类型 {symbol.Name} <remarks>，内容:\n{before}");
+                    }
+                }
+            }
+
+            // 新增：自动补全未闭合<remarks>标签
+            modifiedComment = EnsureXmlWellFormedAndNoIllegalEmptyLines(modifiedComment);
+
+            if (modifiedComment != existingComment)
+            {
+                Console.WriteLine($"[FIX] Comment modified for {symbol.Name}");
+                return ReplaceDocumentationComment(node, modifiedComment);
+            }
+            
+            return node;
+        }
+
+        private List<DiagnosticInfo> GetRelevantDiagnostics(SyntaxNode node)
+        {
+            var lineNumber = node.GetLocation().GetLineSpan().StartLinePosition.Line + 1;
+            return _diagnostics.Where(d => d.Line == lineNumber).ToList();
+        }
+
+        private string ExtractExistingDocumentationComment(SyntaxNode node)
+        {
+            var leadingTrivia = node.GetLeadingTrivia();
+            var docCommentTrivia = leadingTrivia
+                .Where(t => t.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia) || 
+                           t.IsKind(SyntaxKind.MultiLineDocumentationCommentTrivia))
+                .LastOrDefault();
+
+            if (docCommentTrivia.IsKind(SyntaxKind.None))
+                return string.Empty;
+
+            return docCommentTrivia.ToFullString();
+        }
+
+        private SyntaxNode ReplaceDocumentationComment(SyntaxNode node, string newComment)
+        {
+            var leadingTrivia = node.GetLeadingTrivia();
+            var newTriviaList = new List<SyntaxTrivia>();
+            
+            bool foundDocComment = false;
+            for (int i = 0; i < leadingTrivia.Count; i++)
+            {
+                var trivia = leadingTrivia[i];
+                if (trivia.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia) || 
+                    trivia.IsKind(SyntaxKind.MultiLineDocumentationCommentTrivia))
+                {
+                    if (!foundDocComment)
+                    {
+                        var commentTrivia = SyntaxFactory.ParseLeadingTrivia(newComment);
+                        newTriviaList.AddRange(commentTrivia);
+                        foundDocComment = true;
+                    }
+            }
+            else
+            {
+                    newTriviaList.Add(trivia);
+                }
+            }
+
+            if (!foundDocComment)
+            {
+                var commentTrivia = SyntaxFactory.ParseLeadingTrivia(newComment);
+                newTriviaList.InsertRange(0, commentTrivia);
+            }
+
+            return node.WithLeadingTrivia(newTriviaList);
+        }
+
+        private string AddMissingParamTags(string existingComment, ISymbol symbol)
+        {
+            IReadOnlyList<IParameterSymbol> parameters = null;
+            
+            // Handle both methods and delegates
+            if (symbol is IMethodSymbol methodSymbol)
+            {
+                parameters = methodSymbol.Parameters;
+            }
+            else if (symbol is INamedTypeSymbol namedTypeSymbol && namedTypeSymbol.TypeKind == TypeKind.Delegate)
+            {
+                var invokeMethod = namedTypeSymbol.DelegateInvokeMethod;
+                if (invokeMethod != null)
+                {
+                    parameters = invokeMethod.Parameters;
+                }
+            }
+            
+            if (parameters == null || !parameters.Any())
+                return existingComment;
+
+            var existingParams = ExtractExistingParamNames(existingComment);
+            var missingParams = parameters
+                .Where(p => !existingParams.Contains(p.Name))
+                .ToList();
+
+            if (!missingParams.Any())
+                return existingComment;
+
+            Console.WriteLine($"[FIX] Adding {missingParams.Count} missing param tags for {symbol.Name}");
+
+            var insertionPoint = FindInsertionPointForParams(existingComment);
+            var paramTags = new StringBuilder();
+            
+            foreach (var param in missingParams)
+            {
+                paramTags.AppendLine($"/// <param name=\"{param.Name}\">[参数说明]</param>");
+            }
+
+            return existingComment.Insert(insertionPoint, paramTags.ToString());
+        }
+
+        private string AddMissingReturnsTag(string existingComment, ISymbol symbol)
+        {
+            bool hasReturnValue = false;
+            
+            // Handle both methods and delegates
+            if (symbol is IMethodSymbol methodSymbol)
+            {
+                hasReturnValue = !methodSymbol.ReturnsVoid && methodSymbol.MethodKind != MethodKind.Constructor;
+            }
+            else if (symbol is INamedTypeSymbol namedTypeSymbol && namedTypeSymbol.TypeKind == TypeKind.Delegate)
+            {
+                var invokeMethod = namedTypeSymbol.DelegateInvokeMethod;
+                if (invokeMethod != null)
+                {
+                    hasReturnValue = !invokeMethod.ReturnsVoid;
+                }
+            }
+            
+            if (!hasReturnValue)
+                return existingComment;
+
+            if (existingComment.Contains("<returns>"))
+                return existingComment;
+
+            Console.WriteLine($"[FIX] Adding missing returns tag for {symbol.Name}");
+
+            var insertionPoint = FindInsertionPointForReturns(existingComment);
+            var returnsTag = "/// <returns>[返回值说明]</returns>\n";
+
+            return existingComment.Insert(insertionPoint, returnsTag);
+        }
+
+        /// <summary>
+        /// 增量补全类型<remarks>结构化条目，保持原有内容，仅补全缺失部分。
+        /// </summary>
+        private string EnsureRemarksStructured(string existingComment, ISymbol symbol)
+        {
+            if (symbol.Kind != SymbolKind.NamedType)
+                return existingComment;
+
+            var requiredTags = new[]
+            {
+                "功能:", "架构层级:", "模块:", "继承/实现关系:", "依赖:", "扩展点:", "特性:", "重要逻辑:", "数据流:", "使用示例:"
+            };
+
+            // 提取<remarks>块内容
+            var remarksStart = existingComment.IndexOf("<remarks>");
+            var remarksEnd = existingComment.IndexOf("</remarks>");
+            if (remarksStart == -1 || remarksEnd == -1)
+                return existingComment;
+
+            var remarksContentStart = remarksStart + "<remarks>".Length;
+            var remarksContent = existingComment.Substring(remarksContentStart, remarksEnd - remarksContentStart);
+            var lines = remarksContent.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).Select(l => l.Trim()).ToList();
+
+            // 检查每个条目是否存在
+            var missingTags = requiredTags.Where(tag => !lines.Any(l => l.Contains(tag))).ToList();
+            if (missingTags.Count == 0)
+            {
+                Console.WriteLine($"[DEBUG] EnsureRemarksStructured: 类型 {symbol.Name} <remarks> 已全，内容:\n{remarksContent}");
+                return existingComment; // 已全
+            }
+
+            // 构造补全内容
+            var toAppend = string.Join("\n", missingTags.Select(tag => $"/// {tag} [待补充]"));
+            // 在</remarks>前插入
+            var before = existingComment.Substring(0, remarksEnd);
+            var after = existingComment.Substring(remarksEnd);
+            var newComment = before.TrimEnd() + "\n" + toAppend + "\n" + after;
+            Console.WriteLine($"[DEBUG] EnsureRemarksStructured: 类型 {symbol.Name} <remarks> 缺失条目: {string.Join(", ", missingTags)}\n补全后内容:\n{newComment}");
+            return newComment;
+        }
+
+        // 在修复流程中调用EnsureRemarksStructured
+        private string AddMissingRemarksTag(string existingComment, ISymbol symbol)
+        {
+            if (existingComment.Contains("<remarks>"))
+            {
+                // 对类型执行结构化条目补全
+                return EnsureRemarksStructured(existingComment, symbol);
+            }
+            return existingComment;
+        }
+
+        private string AddMissingSummaryTag(string existingComment, ISymbol symbol)
+        {
+            if (existingComment.Contains("<summary>"))
+                return existingComment;
+
+            Console.WriteLine($"[FIX] Adding missing summary tag");
+
+            var symbolKind = GetSymbolKindString(symbol);
+            var summaryTag = $"/// <summary>\n/// {symbol.Name} —— [{symbolKind}职责简述]\n/// </summary>\n";
+
+            var firstLineEnd = existingComment.IndexOf('\n');
+            if (firstLineEnd == -1) firstLineEnd = existingComment.Length;
+
+            return existingComment.Insert(firstLineEnd + 1, summaryTag);
+        }
+
+        private string AddMissingTypeParamTags(string existingComment, ISymbol symbol)
+        {
+            IReadOnlyList<ITypeParameterSymbol> typeParameters = null;
+            
+            // Handle both methods and delegates
+            if (symbol is IMethodSymbol methodSymbol)
+            {
+                typeParameters = methodSymbol.TypeParameters;
+            }
+            else if (symbol is INamedTypeSymbol namedTypeSymbol && namedTypeSymbol.TypeKind == TypeKind.Delegate)
+            {
+                typeParameters = namedTypeSymbol.TypeParameters;
+            }
+            
+            if (typeParameters == null || !typeParameters.Any())
+                return existingComment;
+
+            var existingTypeParams = ExtractExistingTypeParamNames(existingComment);
+            var missingTypeParams = typeParameters
+                .Where(tp => !existingTypeParams.Contains(tp.Name))
+                .ToList();
+
+            if (!missingTypeParams.Any())
+                return existingComment;
+
+            Console.WriteLine($"[FIX] Adding {missingTypeParams.Count} missing typeparam tags for {symbol.Name}");
+
+            var insertionPoint = FindInsertionPointForTypeParams(existingComment);
+            var typeParamTags = new StringBuilder();
+            
+            foreach (var typeParam in missingTypeParams)
+            {
+                typeParamTags.AppendLine($"/// <typeparam name=\"{typeParam.Name}\">[类型参数说明]</typeparam>");
+            }
+
+            return existingComment.Insert(insertionPoint, typeParamTags.ToString());
+        }
+
+        private HashSet<string> ExtractExistingParamNames(string comment)
+        {
+            var paramNames = new HashSet<string>();
+            var paramMatches = System.Text.RegularExpressions.Regex.Matches(comment, @"<param\s+name\s*=\s*[""']([^""']+)[""']");
+            
+            foreach (System.Text.RegularExpressions.Match match in paramMatches)
+            {
+                paramNames.Add(match.Groups[1].Value);
+            }
+            
+            return paramNames;
+        }
+
+        private HashSet<string> ExtractExistingTypeParamNames(string comment)
+        {
+            var typeParamNames = new HashSet<string>();
+            var typeParamMatches = System.Text.RegularExpressions.Regex.Matches(comment, @"<typeparam\s+name\s*=\s*[""']([^""']+)[""']");
+            
+            foreach (System.Text.RegularExpressions.Match match in typeParamMatches)
+            {
+                typeParamNames.Add(match.Groups[1].Value);
+            }
+            
+            return typeParamNames;
+        }
+
+        private int FindInsertionPointForParams(string comment)
+        {
+            var summaryEnd = comment.LastIndexOf("</summary>");
+            if (summaryEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', summaryEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            var remarksEnd = comment.LastIndexOf("</remarks>");
+            if (remarksEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', remarksEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            return comment.TrimEnd().Length;
+        }
+
+        private int FindInsertionPointForTypeParams(string comment)
+        {
+            var summaryEnd = comment.LastIndexOf("</summary>");
+            if (summaryEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', summaryEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            var firstLineEnd = comment.IndexOf('\n');
+            if (firstLineEnd != -1) return firstLineEnd + 1;
+
+            return 0;
+        }
+
+        private int FindInsertionPointForReturns(string comment)
+        {
+            var lastParamEnd = comment.LastIndexOf("</param>");
+            if (lastParamEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', lastParamEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            var lastTypeParamEnd = comment.LastIndexOf("</typeparam>");
+            if (lastTypeParamEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', lastTypeParamEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            return comment.TrimEnd().Length;
+        }
+
+        private int FindInsertionPointForRemarks(string comment)
+        {
+            var summaryEnd = comment.LastIndexOf("</summary>");
+            if (summaryEnd != -1)
+            {
+                var nextLine = comment.IndexOf('\n', summaryEnd);
+                if (nextLine != -1) return nextLine + 1;
+            }
+
+            var firstLineEnd = comment.IndexOf('\n');
+            if (firstLineEnd != -1) return firstLineEnd + 1;
+
+            return 0;
+        }
+        
+        private string GenerateIdealComment(ISymbol symbol)
+        {
+            var sb = new StringBuilder();
+            var symbolKind = GetSymbolKindString(symbol);
+            
+            sb.AppendLine("/// <summary>");
+            sb.AppendLine($"/// {symbol.Name} —— [{symbolKind}职责简述]");
+            sb.AppendLine("/// </summary>");
+            
+            sb.AppendLine("/// <remarks>");
+            if (symbol.Kind == SymbolKind.NamedType)
+            {
+                // 类型级别的详细注释模板，顺序与项目注释规范一致
+                sb.AppendLine("/// 功能: [待补充]");
+                sb.AppendLine("/// 架构层级: [待补充]");
+                sb.AppendLine("/// 模块: [待补充]");
+                sb.AppendLine("/// 继承/实现关系: [待补充]");
+                sb.AppendLine("/// 依赖: [待补充]");
+                sb.AppendLine("/// 扩展点: [待补充]");
+                sb.AppendLine("/// 特性: [待补充]");
+                sb.AppendLine("/// 重要逻辑: [待补充]");
+                sb.AppendLine("/// 数据流: [待补充]");
+                sb.AppendLine("/// 使用示例: [待补充]");
+            }
+            else
+            {
+                // 非类型成员只需功能
+                sb.AppendLine("/// 功能: [待补充]");
+            }
+            sb.AppendLine("/// </remarks>");
+
+            // 方法级别的参数和返回值注释
+            if (symbol is IMethodSymbol methodSymbol)
+            {
+                // 泛型类型参数
+                foreach (var typeParam in methodSymbol.TypeParameters)
+                {
+                    sb.AppendLine($"/// <typeparam name=\"{typeParam.Name}\">[类型参数说明]</typeparam>");
+                }
+                // 方法参数
+                foreach (var param in methodSymbol.Parameters)
+                {
+                    sb.AppendLine($"/// <param name=\"{param.Name}\">[参数说明]</param>");
+                }
+                // 返回值
+                if (!methodSymbol.ReturnsVoid)
+                {
+                    sb.AppendLine("/// <returns>[返回值说明]</returns>");
+                }
+            }
+            // 委托类型的参数和返回值注释
+            else if (symbol is INamedTypeSymbol namedTypeSymbol && namedTypeSymbol.TypeKind == TypeKind.Delegate)
+            {
+                var invokeMethod = namedTypeSymbol.DelegateInvokeMethod;
+                if (invokeMethod != null)
+                {
+                    foreach (var typeParam in namedTypeSymbol.TypeParameters)
+                    {
+                        sb.AppendLine($"/// <typeparam name=\"{typeParam.Name}\">[类型参数说明]</typeparam>");
+                    }
+                    foreach (var param in invokeMethod.Parameters)
+                    {
+                        sb.AppendLine($"/// <param name=\"{param.Name}\">[参数说明]</param>");
+                    }
+                    if (!invokeMethod.ReturnsVoid)
+                    {
+                        sb.AppendLine("/// <returns>[返回值说明]</returns>");
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        private string GetSymbolKindString(ISymbol symbol)
+        {
+            if (symbol is INamedTypeSymbol namedType)
+            {
+                return namedType.TypeKind.ToString().ToLower();
+            }
+            return symbol.Kind.ToString().ToLower();
+        }
+
+        /// <summary>
+        /// 自动补全未闭合的<remarks>标签，并去除非法空行，提升修复健壮性。
+        /// </summary>
+        private string EnsureXmlWellFormedAndNoIllegalEmptyLines(string comment)
+        {
+            // 只处理常见的<remarks>未闭合情况
+            if (comment.Contains("<remarks>") && !comment.Contains("</remarks>"))
+            {
+                comment += "\n/// </remarks>\n";
+                Console.WriteLine("[FIX] 自动补全未闭合的 <remarks> 标签");
+            }
+            // 去除非法空行：只保留以///开头的行，且去除多余的空行
+            var lines = comment.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var cleanedLines = new List<string>();
+            bool lastWasEmpty = false;
+            foreach (var line in lines)
+            {
+                var trimmed = line.Trim();
+                if (string.IsNullOrWhiteSpace(trimmed))
+                {
+                    if (!lastWasEmpty)
+                    {
+                        cleanedLines.Add("///"); // 保留单一空行
+                        lastWasEmpty = true;
+                    }
+                    continue;
+                }
+                if (trimmed.StartsWith("///"))
+                {
+                    cleanedLines.Add(trimmed);
+                    lastWasEmpty = false;
+                }
+                // 非///开头的非法行直接跳过
+            }
+            return string.Join("\n", cleanedLines);
+        }
+        }
+    }
+}
+

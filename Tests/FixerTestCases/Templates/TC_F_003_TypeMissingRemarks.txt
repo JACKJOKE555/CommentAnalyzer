@@ -1,0 +1,7 @@
+/// <summary>
+/// TestClass3 —— [class职责简述]
+/// </summary>
+public class TestClass3
+{
+    public int Value;
+} 

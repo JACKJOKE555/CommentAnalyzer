@@ -1,0 +1,38 @@
+{
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_008_MemberMissingParam.cs"
+    }
+  ],
+  "Mode": "fix",
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_PARAM",
+      "Line": 24,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_008_MemberMissingParam.cs",
+      "Message": "方法 'Add' 的XML注释中缺少对参数 'a' 的 <param> 注释"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_PARAM",
+      "Line": 24,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_008_MemberMissingParam.cs",
+      "Message": "方法 'Add' 的XML注释中缺少对参数 'b' 的 <param> 注释"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_RETURNS",
+      "Line": 24,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_008_MemberMissingParam.cs",
+      "Message": "方法 'Add' 有返回值，但其XML注释中缺少 <returns> 标签"
+    }
+  ],
+  "Timestamp": "2025-07-09 12:16:04",
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesAfter": 3,
+    "FixConverged": true,
+    "IssuesBefore": 5,
+    "FilesProcessed": 1
+  },
+  "JobID": "20250709-121459-26948"
+}

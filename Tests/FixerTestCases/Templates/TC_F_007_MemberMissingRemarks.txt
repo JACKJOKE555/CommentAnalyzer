@@ -1,0 +1,12 @@
+public class TestClass7
+{
+    /// <summary>
+    /// Value —— [field职责简述]
+    /// </summary>
+    public int Value;
+
+    /// <summary>
+    /// DoSomething —— [method职责简述]
+    /// </summary>
+    public void DoSomething(int x) { }
+} 

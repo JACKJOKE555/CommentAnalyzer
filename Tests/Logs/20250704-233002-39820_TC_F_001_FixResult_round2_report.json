@@ -1,0 +1,19 @@
+{
+  "Timestamp": "2025-07-04T15:30:17.2399574Z",
+  "Summary": {
+    "IssuesBefore": 3,
+    "IssuesAfter": 0,
+    "IssuesFixed": 3,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_001_TypeNoCommentBlock.cs",
+      "Success": true,
+      "FixesApplied": 4,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": []
+}

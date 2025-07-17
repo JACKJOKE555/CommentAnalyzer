@@ -1,0 +1,48 @@
+namespace Dropleton.Tests
+{
+    /// <summary>
+    /// A test class with some existing documentation.
+    /// </summary>
+    public class SmartFixTestClass
+    {
+        // This property is missing all documentation.
+        public int NoDocProperty { get; set; }
+
+        /// <summary>
+        /// This property only has a summary.
+        /// </summary>
+        public string SummaryOnlyProperty { get; set; }
+
+        // This method has no documentation.
+        public void MethodWithNoDoc(int input)
+        {
+        }
+
+        /// <summary>
+        /// This method has a summary but is missing param and returns tags.
+        /// </summary>
+        public bool MethodWithMissingTags(string name)
+        {
+            return !string.IsNullOrEmpty(name);
+        }
+
+        /// <summary>
+        /// This method has full documentation and should not be changed.
+        /// </summary>
+        /// <remarks>
+        /// 功能: [完整]
+        /// </remarks>
+        /// <param name="data">[完整]</param>
+        /// <returns>[完整]</returns>
+        public string FullDocMethod(object data)
+        {
+            return data.ToString();
+        }
+    }
+
+    // This interface has no documentation.
+    public interface ISmartFixTest
+    {
+        void RunTest();
+    }
+} 

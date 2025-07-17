@@ -1,0 +1,8 @@
+﻿Roslynator Version: 0.10.1.0
+Roslynator Target Framework: .NET Framework
+Roslyn Version: 4.12.0.0
+MSBuild location is 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin'
+Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250706160902.csproj'...
+  Evaluate  00:00.90  TempProject_20250706160902.csproj
+  Build     00:00.66  TempProject_20250706160902.csproj
+Operation was canceled.

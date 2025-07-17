@@ -1,0 +1,38 @@
+{
+  "JobID": "20250709-221212-6404",
+  "Summary": {
+    "IssuesAfter": 3,
+    "FilesProcessed": 1,
+    "IssuesBefore": 4,
+    "RoundsExecuted": 3,
+    "FixConverged": true
+  },
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_SUMMARY",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_006_MemberMissingSummary.cs",
+      "Line": 31,
+      "Message": "FieldDeclaration 'TestField' 的XML注释中缺少 <summary> 标签"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_SUMMARY",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_006_MemberMissingSummary.cs",
+      "Line": 42,
+      "Message": "PropertyDeclaration 'TestProperty' 的XML注释中缺少 <summary> 标签"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_SUMMARY",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_006_MemberMissingSummary.cs",
+      "Line": 55,
+      "Message": "MethodDeclaration 'TestMethod' 的XML注释中缺少 <summary> 标签"
+    }
+  ],
+  "Timestamp": "2025-07-09 22:13:51",
+  "Files": [
+    {
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_006_MemberMissingSummary.cs",
+      "Modified": false
+    }
+  ],
+  "Mode": "fix"
+}

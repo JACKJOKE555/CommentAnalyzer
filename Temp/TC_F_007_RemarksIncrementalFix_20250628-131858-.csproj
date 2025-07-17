@@ -1,0 +1,9 @@
+<Project Sdk=\"Microsoft.NET.Sdk\">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include=\"CustomPackages/CommentAnalyzer/Temp/TC_F_007_RemarksIncrementalFix_20250628-131858-.cs\" />
+  </ItemGroup>
+</Project>

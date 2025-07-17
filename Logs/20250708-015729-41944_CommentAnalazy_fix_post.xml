@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="5" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250708015729" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708015729.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_726cb40b.cs</FilePath>
+            <Location Line="21" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_726cb40b.cs</FilePath>
+            <Location Line="23" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_726cb40b.cs</FilePath>
+            <Location Line="25" Character="19" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_726cb40b.cs</FilePath>
+            <Location Line="45" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_726cb40b.cs</FilePath>
+            <Location Line="65" Character="16" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

@@ -1,0 +1,12 @@
+public class TestClass10
+{
+    /// <summary>
+    /// GenericMethod —— [method职责简述]
+    /// </summary>
+    /// <remarks>
+    /// 功能: [待补充]
+    /// </remarks>
+    public T GenericMethod<T>(T value) { return value; }
+}
+
+delegate T MyGenericDelegate<T>(T x); 

@@ -1,0 +1,8 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709123357.csproj'...
+Analyze 'TempProject_20250709123357'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_013_MultiEnumFile.cs(16,1): warning PROJECT_TYPE_MULTI_ENUM_FILE: 文件 'TC_F_013_MultiEnumFile.cs' 中定义了多个枚举，应将每个枚举置于其独立文件中
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709123357.csproj' (in 3.0 s)
+
+1 PROJECT_TYPE_MULTI_ENUM_FILE 单个文件定义了多个枚举
+
+1 diagnostic found

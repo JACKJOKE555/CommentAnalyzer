@@ -1,0 +1,7 @@
+/// <remarks>
+/// 功能: [待补充]
+/// </remarks>
+public class TestClass2
+{
+    public int Value;
+} 

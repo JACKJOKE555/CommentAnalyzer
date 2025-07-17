@@ -1,0 +1,8 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133809.csproj'...
+Analyze 'TempProject_20250709133809'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_012_NestedEnum.cs(40,17): warning PROJECT_TYPE_NESTED_ENUM: 不应在类型内部嵌套定义枚举 'InnerEnum'
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133809.csproj' (in 3.4 s)
+
+1 PROJECT_TYPE_NESTED_ENUM 不应嵌套定义枚举
+
+1 diagnostic found

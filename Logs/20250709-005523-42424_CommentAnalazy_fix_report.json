@@ -1,0 +1,19 @@
+{
+  "Files": [
+    {
+      "Modified": true,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs"
+    }
+  ],
+  "Mode": "fix",
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesBefore": 5,
+    "IssuesAfter": 0,
+    "FilesProcessed": 1,
+    "FixConverged": true
+  },
+  "Timestamp": "2025-07-09 00:56:27",
+  "JobID": "20250709-005523-42424",
+  "FinalDiagnostics": []
+}

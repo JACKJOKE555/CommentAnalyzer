@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="1" />
+      <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG" Title="类型 &lt;remarks&gt; 缺少结构化标签" Count="9" />
+      <Diagnostic Id="PROJECT_TYPE_MISSING_SUMMARY" Title="类型缺少 &lt;summary&gt;" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709005217" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709005217.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="6" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="1" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;summary&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs</FilePath>
+            <Location Line="4" Character="14" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

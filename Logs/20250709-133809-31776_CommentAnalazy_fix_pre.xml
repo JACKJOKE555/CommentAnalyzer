@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_TYPE_NESTED_ENUM" Title="不应嵌套定义枚举" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709133809" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133809.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_TYPE_NESTED_ENUM">
+            <Severity>Warning</Severity>
+            <Message>不应嵌套定义枚举</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_012_NestedEnum.cs</FilePath>
+            <Location Line="40" Character="17" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

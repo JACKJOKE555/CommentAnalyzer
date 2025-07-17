@@ -1,0 +1,26 @@
+{
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_TYPE_NESTED_TYPE",
+      "Message": "不应在类型内部嵌套定义类型 'InnerClass'",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_011_NestedType.cs",
+      "Line": 40
+    }
+  ],
+  "JobID": "20250709-122218-21052",
+  "Summary": {
+    "RoundsExecuted": 4,
+    "IssuesAfter": 4,
+    "FilesProcessed": 1,
+    "FixConverged": true,
+    "IssuesBefore": 4
+  },
+  "Timestamp": "2025-07-09 12:24:10",
+  "Files": [
+    {
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_011_NestedType.cs",
+      "Modified": false
+    }
+  ],
+  "Mode": "fix"
+}

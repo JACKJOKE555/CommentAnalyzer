@@ -1,0 +1,32 @@
+{
+  "JobID": "20250708-231543-20088",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_001_TypeNoCommentBlock.cs"
+    }
+  ],
+  "Timestamp": "2025-07-08 23:17:27",
+  "Mode": "fix",
+  "Summary": {
+    "RoundsExecuted": 3,
+    "IssuesAfter": 2,
+    "FilesProcessed": 1,
+    "IssuesBefore": 4,
+    "FixConverged": true
+  },
+  "FinalDiagnostics": [
+    {
+      "Line": 18,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_001_TypeNoCommentBlock.cs",
+      "Message": "FieldDeclaration 'Value' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK"
+    },
+    {
+      "Line": 26,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_001_TypeNoCommentBlock.cs",
+      "Message": "FieldDeclaration 'a' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK"
+    }
+  ]
+}

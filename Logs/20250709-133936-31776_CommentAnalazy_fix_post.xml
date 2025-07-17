@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_TYPE_MULTI_ENUM_FILE" Title="单个文件定义了多个枚举" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709133936" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133936.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_TYPE_MULTI_ENUM_FILE">
+            <Severity>Warning</Severity>
+            <Message>单个文件定义了多个枚举</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_013_MultiEnumFile.cs</FilePath>
+            <Location Line="16" Character="1" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

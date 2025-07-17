@@ -1,0 +1,25 @@
+using System;
+
+namespace TestNamespace
+{
+    public class TestClass6
+    {
+        /// <remarks>
+        /// 功能: [待补充]
+        /// </remarks>
+        public int TestField;
+
+        /// <remarks>
+        /// 功能: [待补充]
+        /// </remarks>
+        public string TestProperty { get; set; }
+
+        /// <remarks>
+        /// 功能: [待补充]
+        /// </remarks>
+        /// <param name="value">参数说明</param>
+        public void TestMethod(int value)
+        {
+        }
+    }
+} 

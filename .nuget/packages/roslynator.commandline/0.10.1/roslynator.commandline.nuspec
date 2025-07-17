@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Roslynator.CommandLine</id>
+    <version>0.10.1</version>
+    <authors>Josef Pihrt</authors>
+    <owners>Josef Pihrt</owners>
+    <developmentDependency>true</developmentDependency>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>docs\README.md</readme>
+    <projectUrl>https://github.com/dotnet/roslynator</projectUrl>
+    <description>Roslynator command-line tool for .NET Framework</description>
+    <summary>Roslynator command-line tool for .NET Framework</summary>
+    <copyright>Copyright (c) 2017-2022 Josef Pihrt</copyright>
+    <tags>CLI Roslyn C# CSharp VB VisualBasic</tags>
+    <repository type="git" url="https://github.com/dotnet/roslynator.git" />
+  </metadata>
+</package>

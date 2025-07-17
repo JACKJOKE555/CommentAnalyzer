@@ -1,0 +1,26 @@
+{
+  "Timestamp": "2025-07-08T15:57:59.6791788Z",
+  "Summary": {
+    "IssuesBefore": 1,
+    "IssuesAfter": 1,
+    "IssuesFixed": 0,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_002_TypeMissingSummary.cs",
+      "Success": true,
+      "FixesApplied": 2,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": [
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_002_TypeMissingSummary.cs",
+      "Line": 4611,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716121537.csproj'...
+Analyze 'TempProject_20250716121537'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs(4,14): warning PROJECT_TYPE_MISSING_REMARKS: ClassDeclaration 'TestClass3' 的XML注释中缺少 <remarks> 标签
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716121537.csproj' (in 3.3 s)
+
+1 PROJECT_TYPE_MISSING_REMARKS 类型缺少 <remarks>
+
+1 diagnostic found

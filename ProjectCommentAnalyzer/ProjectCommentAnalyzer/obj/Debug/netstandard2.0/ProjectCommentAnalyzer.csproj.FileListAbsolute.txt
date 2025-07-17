@@ -1,0 +1,13 @@
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\bin\Debug\netstandard2.0\ProjectCommentAnalyzer.deps.json
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\bin\Debug\netstandard2.0\ProjectCommentAnalyzer.dll
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\bin\Debug\netstandard2.0\ProjectCommentAnalyzer.pdb
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.csproj.AssemblyReference.cache
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.Resources.resources
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.csproj.GenerateResource.cache
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.AssemblyInfoInputs.cache
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.AssemblyInfo.cs
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.csproj.CoreCompileInputs.cache
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.dll
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.pdb
+D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\ProjectCommentAnalyzer\ProjectCommentAnalyzer\obj\Debug\netstandard2.0\ProjectCommentAnalyzer.sourcelink.json

@@ -1,0 +1,38 @@
+{
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_007_MemberMissingRemarks.cs"
+    }
+  ],
+  "Mode": "fix",
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_PARAM",
+      "Line": 26,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_007_MemberMissingRemarks.cs",
+      "Message": "方法 'DoSomething' 的XML注释中缺少对参数 'x' 的 <param> 注释"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_REMARKS",
+      "Line": 21,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_007_MemberMissingRemarks.cs",
+      "Message": "FieldDeclaration 'Value' 的XML注释中缺少 <remarks> 标签"
+    },
+    {
+      "Rule": "PROJECT_MEMBER_MISSING_REMARKS",
+      "Line": 26,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_007_MemberMissingRemarks.cs",
+      "Message": "MethodDeclaration 'DoSomething' 的XML注释中缺少 <remarks> 标签"
+    }
+  ],
+  "Timestamp": "2025-07-09 12:14:17",
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesAfter": 3,
+    "FixConverged": true,
+    "IssuesBefore": 4,
+    "FilesProcessed": 1
+  },
+  "JobID": "20250709-121316-26948"
+}

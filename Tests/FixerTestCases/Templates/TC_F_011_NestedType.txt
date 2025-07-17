@@ -1,0 +1,8 @@
+public class OuterClass
+{
+    public int Value;
+    public class InnerClass
+    {
+        public int InnerValue;
+    }
+} 

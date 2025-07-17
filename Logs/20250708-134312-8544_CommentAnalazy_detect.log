@@ -1,0 +1,16 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708134312.csproj'...
+Analyze 'TempProject_20250708134312'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(6,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'TestField' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(8,17): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: MethodDeclaration 'TestMethod' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(10,19): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: PropertyDeclaration 'TestProperty' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(15,10): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: MethodDeclaration 'InterfaceMethod' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(20,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'StructField' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(4,14): warning PROJECT_TYPE_NO_COMMENT_BLOCK: ClassDeclaration 'DebugTestClass' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(13,18): warning PROJECT_TYPE_NO_COMMENT_BLOCK: InterfaceDeclaration 'IDebugTestInterface' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\DebugTests\DebugTestCase_Temp_eafd56fe.cs(18,15): warning PROJECT_TYPE_NO_COMMENT_BLOCK: StructDeclaration 'DebugTestStruct' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708134312.csproj' (in 2.9 s)
+
+5 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+3 PROJECT_TYPE_NO_COMMENT_BLOCK   类型缺少XML注释块
+
+8 diagnostics found

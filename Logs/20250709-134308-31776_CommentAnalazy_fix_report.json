@@ -1,0 +1,26 @@
+{
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_017_BuiltinDiagnostic.cs",
+      "Line": 6,
+      "Message": "ClassDeclaration 'TestClass17' 的XML注释中缺少 <remarks> 标签"
+    }
+  ],
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesBefore": 2,
+    "FixConverged": true,
+    "IssuesAfter": 4,
+    "FilesProcessed": 1
+  },
+  "JobID": "20250709-134308-31776",
+  "Timestamp": "2025-07-09 13:44:05",
+  "Mode": "fix",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_017_BuiltinDiagnostic.cs"
+    }
+  ]
+}

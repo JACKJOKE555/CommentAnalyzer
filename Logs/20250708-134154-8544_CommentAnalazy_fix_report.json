@@ -1,0 +1,38 @@
+{
+  "Summary": {
+    "RoundsExecuted": 1,
+    "IssuesAfter": 3,
+    "FixConverged": true,
+    "IssuesBefore": 3,
+    "FilesProcessed": 1
+  },
+  "Mode": "fix",
+  "FinalDiagnostics": [
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\CaptureDebugTest.cs",
+      "Message": "FieldDeclaration 'Value' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 3
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\CaptureDebugTest.cs",
+      "Message": "MethodDeclaration 'DoSomething' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "Line": 4
+    },
+    {
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\CaptureDebugTest.cs",
+      "Message": "ClassDeclaration 'CaptureTestClass' 完全没有XML注释块",
+      "Rule": "PROJECT_TYPE_NO_COMMENT_BLOCK",
+      "Line": 1
+    }
+  ],
+  "Timestamp": "2025-07-08 13:42:23",
+  "JobID": "20250708-134154-8544",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\DebugTests\\CaptureDebugTest.cs"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+﻿System.AggregateException: 发生一个或多个错误。 ---> System.IO.FileNotFoundException: Project or solution file not found: D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717143506.csproj
+   在 Roslynator.CommandLine.MSBuildWorkspaceCommand`1.<ExecuteAsync>d__11.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 Roslynator.CommandLine.MSBuildWorkspaceCommand`1.<ExecuteAsync>d__10.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Roslynator.CommandLine.Program.<AnalyzeAsync>d__5.MoveNext()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   在 Roslynator.CommandLine.Program.Main(String[] args)
+---> (内部异常 #0) System.IO.FileNotFoundException: Project or solution file not found: D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717143506.csproj
+   在 Roslynator.CommandLine.MSBuildWorkspaceCommand`1.<ExecuteAsync>d__11.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 Roslynator.CommandLine.MSBuildWorkspaceCommand`1.<ExecuteAsync>d__10.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Roslynator.CommandLine.Program.<AnalyzeAsync>d__5.MoveNext()<---
+

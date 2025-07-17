@@ -1,0 +1,20 @@
+using System;
+
+namespace TestNamespace
+{
+    public class TestClass14
+    {
+#if CONDITION
+        /// <summary>
+        /// ShouldBeForMethodB —— [method职责简述]
+        /// </summary>
+        public void MethodB() { }
+#endif
+#if !CONDITION
+        /// <summary>
+        /// ShouldBeForMethodA —— [method职责简述]
+        /// </summary>
+        public void MethodA() { }
+#endif
+    }
+} 

@@ -1,0 +1,12 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717140955.csproj'...
+Analyze 'TempProject_20250717140955'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs(147,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'Value' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs(1,4): warning PROJECT_TYPE_DUPLICATE_REMARKS: 类型 'TestClass3' 的XML注释中存在重复的 <remarks> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs(1,4): warning PROJECT_TYPE_DUPLICATE_SUMMARY: 类型 'TestClass3' 的XML注释中存在重复的 <summary> 标签
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717140955.csproj' (in 2.7 s)
+
+1 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+1 PROJECT_TYPE_DUPLICATE_REMARKS  类型XML注释中存在重复的 <remarks> 标签
+1 PROJECT_TYPE_DUPLICATE_SUMMARY  类型XML注释中存在重复的 <summary> 标签
+
+3 diagnostics found

@@ -1,0 +1,8 @@
+public class OuterClass2
+{
+    public int Value;
+    public enum InnerEnum
+    {
+        A, B, C
+    }
+} 

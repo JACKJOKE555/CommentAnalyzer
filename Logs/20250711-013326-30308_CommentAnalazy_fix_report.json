@@ -1,0 +1,80 @@
+{
+  "Mode": "fix",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs"
+    }
+  ],
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "FieldDeclaration 'Value' 完全没有XML注释块",
+      "Line": 9
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '架构层级:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '模块:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '继承/实现关系:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '依赖:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '扩展点:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '特性:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '重要逻辑:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '数据流:'",
+      "Line": 4
+    },
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS_TAG",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_004_RemarksMissingTag.cs",
+      "Message": "ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '使用示例:'",
+      "Line": 4
+    }
+  ],
+  "JobID": "20250711-013326-30308",
+  "Summary": {
+    "RoundsExecuted": 1,
+    "IssuesBefore": 10,
+    "FixConverged": true,
+    "IssuesAfter": 10,
+    "FilesProcessed": 1
+  },
+  "Timestamp": "2025-07-11 01:33:39"
+}

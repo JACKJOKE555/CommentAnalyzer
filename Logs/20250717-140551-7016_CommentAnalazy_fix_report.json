@@ -1,0 +1,26 @@
+{
+  "Mode": "fix",
+  "Files": [
+    {
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Modified": false
+    }
+  ],
+  "JobID": "20250717-140551-7016",
+  "Summary": {
+    "RoundsExecuted": 3,
+    "FilesProcessed": 1,
+    "FixConverged": true,
+    "IssuesBefore": 2,
+    "IssuesAfter": 4
+  },
+  "FinalDiagnostics": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Rule": "PROJECT_TYPE_DUPLICATE_SUMMARY",
+      "Message": "类型 'TestClass3' 的XML注释中存在重复的 <summary> 标签",
+      "Line": 1
+    }
+  ],
+  "Timestamp": "2025-07-17 14:07:45"
+}

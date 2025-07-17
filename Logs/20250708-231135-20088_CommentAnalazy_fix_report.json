@@ -1,0 +1,26 @@
+{
+  "JobID": "20250708-231135-20088",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs"
+    }
+  ],
+  "Timestamp": "2025-07-08 23:12:46",
+  "Mode": "fix",
+  "Summary": {
+    "RoundsExecuted": 2,
+    "IssuesAfter": 4,
+    "FilesProcessed": 1,
+    "IssuesBefore": 2,
+    "FixConverged": true
+  },
+  "FinalDiagnostics": [
+    {
+      "Line": 24,
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Message": "FieldDeclaration 'Value' 完全没有XML注释块",
+      "Rule": "PROJECT_MEMBER_NO_COMMENT_BLOCK"
+    }
+  ]
+}

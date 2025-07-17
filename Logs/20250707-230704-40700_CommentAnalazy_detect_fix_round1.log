@@ -1,0 +1,25 @@
+﻿Roslynator Version: 0.10.1.0
+Roslynator Target Framework: .NET Framework
+Roslyn Version: 4.12.0.0
+MSBuild location is 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin'
+Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250707230704.csproj'...
+  Evaluate  00:01.14  TempProject_20250707230704.csproj
+  Build     00:00.94  TempProject_20250707230704.csproj
+  Resolve   00:00.44  TempProject_20250707230704.csproj (netstandard2.1)
+Analyze 'TempProject_20250707230704'
+  1 supported diagnostic with prefix 'PROJECT_CONDITIONAL_COMPILATION_' (PROJECT_CONDITIONAL_COMPILATION_WARNING)
+  5 supported diagnostics with prefix 'PROJECT_MEMBER_MISSING_' (PROJECT_MEMBER_MISSING_PARAM, PROJECT_MEMBER_MISSING_REMARKS, PROJECT_MEMBER_MISSING_RETURNS, PROJECT_MEMBER_MISSING_SUMMARY, PROJECT_MEMBER_MISSING_TYPEPARAM)
+  1 supported diagnostic with prefix 'PROJECT_MEMBER_NO_COMMENT_' (PROJECT_MEMBER_NO_COMMENT_BLOCK)
+  2 supported diagnostics with prefix 'PROJECT_TYPE_MISSING_' (PROJECT_TYPE_MISSING_REMARKS, PROJECT_TYPE_MISSING_SUMMARY)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_MISSING_REMARKS_' (PROJECT_TYPE_MISSING_REMARKS_TAG)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_MULTI_ENUM_' (PROJECT_TYPE_MULTI_ENUM_FILE)
+  2 supported diagnostics with prefix 'PROJECT_TYPE_NESTED_' (PROJECT_TYPE_NESTED_ENUM, PROJECT_TYPE_NESTED_TYPE)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_NO_COMMENT_' (PROJECT_TYPE_NO_COMMENT_BLOCK)
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs(18,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'Value' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs(19,17): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: MethodDeclaration 'DoSomething' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs(20,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'a' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250707230704.csproj' (in 4.0 s)
+
+3 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+
+3 diagnostics found

@@ -1,0 +1,9 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708230313.csproj'...
+Analyze 'TempProject_20250708230313'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs(18,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'Value' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs(26,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'a' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708230313.csproj' (in 3.9 s)
+
+2 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+
+2 diagnostics found

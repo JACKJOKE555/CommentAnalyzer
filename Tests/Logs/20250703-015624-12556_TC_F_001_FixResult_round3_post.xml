@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="CS1591" Title="缺少对公共可见类型或成员的 XML 注释" Count="1">
+        <Description>指定了 /doc 编译器选项，但是一个或多个构造没有注释。</Description>
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS1591)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250703015624" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250703015624.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CS1591">
+            <Severity>Warning</Severity>
+            <Message>缺少对公共可见类型或成员的 XML 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="18" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="18" Character="16" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

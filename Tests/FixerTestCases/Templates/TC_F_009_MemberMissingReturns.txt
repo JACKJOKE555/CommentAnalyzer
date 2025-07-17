@@ -1,0 +1,12 @@
+public class TestClass9
+{
+    /// <summary>
+    /// Multiply —— [method职责简述]
+    /// </summary>
+    /// <remarks>
+    /// 功能: [待补充]
+    /// </remarks>
+    public int Multiply(int a, int b) { return a * b; }
+}
+
+delegate int MyDelegate2(int x, int y); 

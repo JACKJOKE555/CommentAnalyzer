@@ -1,0 +1,30 @@
+/// <summary>
+/// TestClassWithSummaryOnly —— [class职责简述]
+/// </summary>
+public class TestClassWithSummaryOnly
+{
+    public int Value;
+}
+
+/// <summary>
+/// TestClassWithPartialRemarks —— [class职责简述]
+/// </summary>
+/// <remarks>
+/// 功能: [待补充]
+/// </remarks>
+public class TestClassWithPartialRemarks
+{
+    public int Value;
+}
+
+/// <summary>
+/// TestClassWithIncompleteRemarks —— [class职责简述]
+/// </summary>
+/// <remarks>
+/// 功能: [待补充]
+/// 架构层级: [待补充]
+/// </remarks>
+public class TestClassWithIncompleteRemarks
+{
+    public int Value;
+} 

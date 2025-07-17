@@ -1,0 +1,19 @@
+{
+  "FinalDiagnostics": [],
+  "Summary": {
+    "RoundsExecuted": 0,
+    "IssuesBefore": 0,
+    "FixConverged": true,
+    "IssuesAfter": 0,
+    "FilesProcessed": 1
+  },
+  "JobID": "20250709-133124-31776",
+  "Timestamp": "2025-07-09 13:31:31",
+  "Mode": "fix",
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_006_MemberMissingSummary.cs"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+public class TestClass
+{
+    public int Value;
+    public void DoSomething() { }
+    public int a, b;
+} 

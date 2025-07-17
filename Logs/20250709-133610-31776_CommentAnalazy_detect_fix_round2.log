@@ -1,0 +1,10 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133610.csproj'...
+Analyze 'TempProject_20250709133610'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_011_NestedType.cs(42,20): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'InnerValue' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_011_NestedType.cs(40,18): warning PROJECT_TYPE_NESTED_TYPE: 不应在类型内部嵌套定义类型 'InnerClass'
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133610.csproj' (in 3.0 s)
+
+1 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+1 PROJECT_TYPE_NESTED_TYPE        不应嵌套定义类型
+
+2 diagnostics found

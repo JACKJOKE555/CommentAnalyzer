@@ -1,0 +1,9 @@
+public enum EnumA
+{
+    A1, A2
+}
+
+public enum EnumB
+{
+    B1, B2
+} 

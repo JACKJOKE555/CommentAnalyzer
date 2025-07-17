@@ -1,0 +1,16 @@
+/// <summary>
+/// TestClass16 —— [class职责简述]
+/// </summary>
+/// <remarks>
+/// 功能: [待补充]
+/// </remarks>
+public class TestClass16
+{
+    // 普通注释
+    public int Value;
+    /* 块注释 */
+    public void DoSomething() { }
+    
+    // 空行
+    
+} 

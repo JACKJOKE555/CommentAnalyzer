@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_TYPE_DUPLICATE_SUMMARY" Title="类型XML注释中存在重复的 &lt;summary&gt; 标签" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250717140551" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717140551.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_TYPE_DUPLICATE_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>类型XML注释中存在重复的 &lt;summary&gt; 标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs</FilePath>
+            <Location Line="1" Character="4" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

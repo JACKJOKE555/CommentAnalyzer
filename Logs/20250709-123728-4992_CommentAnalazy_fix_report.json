@@ -1,0 +1,44 @@
+{
+  "Timestamp": "2025-07-09 12:37:56",
+  "FinalDiagnostics": [
+    {
+      "Rule": "CS0106",
+      "Message": "修饰符“public”对该项无效",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_014_ConditionalCompilation.cs",
+      "Line": 8
+    },
+    {
+      "Rule": "CS8321",
+      "Message": "声明了本地函数“MethodA”，但从未使用过",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_014_ConditionalCompilation.cs",
+      "Line": 8
+    },
+    {
+      "Rule": "CS8805",
+      "Message": "使用顶级语句的程序必须是可执行文件。",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_014_ConditionalCompilation.cs",
+      "Line": 8
+    },
+    {
+      "Rule": "PROJECT_CONDITIONAL_COMPILATION_WARNING",
+      "Message": "文件 'TC_F_014_ConditionalCompilation.cs' 包含条件编译指令（if, endif），可能存在注释关联BUG。建议使用 -MultiEnvironment 参数进行多环境分析以获得更准确的结果。",
+      "FilePath": "  D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_014_ConditionalCompilation.cs",
+      "Line": 4
+    }
+  ],
+  "Summary": {
+    "FixConverged": true,
+    "RoundsExecuted": 1,
+    "FilesProcessed": 1,
+    "IssuesBefore": 4,
+    "IssuesAfter": 4
+  },
+  "Mode": "fix",
+  "JobID": "20250709-123728-4992",
+  "Files": [
+    {
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_014_ConditionalCompilation.cs",
+      "Modified": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709123357.csproj'...
+Analyze 'TempProject_20250709123357'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_013_MultiEnumFile.cs(1,1): warning PROJECT_TYPE_MULTI_ENUM_FILE: 文件 'TC_F_013_MultiEnumFile.cs' 中定义了多个枚举，应将每个枚举置于其独立文件中
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_013_MultiEnumFile.cs(1,13): warning PROJECT_TYPE_NO_COMMENT_BLOCK: Enum 'EnumA' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_013_MultiEnumFile.cs(6,13): warning PROJECT_TYPE_NO_COMMENT_BLOCK: Enum 'EnumB' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709123357.csproj' (in 2.9 s)
+
+1 PROJECT_TYPE_MULTI_ENUM_FILE  单个文件定义了多个枚举
+2 PROJECT_TYPE_NO_COMMENT_BLOCK 类型缺少XML注释块
+
+3 diagnostics found

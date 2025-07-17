@@ -1,0 +1,10 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709221212.csproj'...
+Analyze 'TempProject_20250709221212'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(31,20): warning PROJECT_MEMBER_MISSING_SUMMARY: FieldDeclaration 'TestField' 的XML注释中缺少 <summary> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(42,23): warning PROJECT_MEMBER_MISSING_SUMMARY: PropertyDeclaration 'TestProperty' 的XML注释中缺少 <summary> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_MemberMissingSummary.cs(55,21): warning PROJECT_MEMBER_MISSING_SUMMARY: MethodDeclaration 'TestMethod' 的XML注释中缺少 <summary> 标签
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709221212.csproj' (in 3.7 s)
+
+3 PROJECT_MEMBER_MISSING_SUMMARY 成员缺少 <summary>
+
+3 diagnostics found

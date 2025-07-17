@@ -1,0 +1,26 @@
+{
+  "Timestamp": "2025-07-06T08:21:33.3155852Z",
+  "Summary": {
+    "IssuesBefore": 1,
+    "IssuesAfter": 1,
+    "IssuesFixed": 0,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Success": true,
+      "FixesApplied": 0,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": [
+    {
+      "Id": "PROJECT_TYPE_MISSING_REMARKS",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Line": 4,
+      "Message": "\u7C7B\u578B\u7F3A\u5C11 \u003Cremarks\u003E"
+    }
+  ]
+}

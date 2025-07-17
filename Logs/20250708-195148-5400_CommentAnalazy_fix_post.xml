@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS" Title="类型缺少 &lt;remarks&gt;" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250708195148" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250708195148.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs</FilePath>
+            <Location Line="4" Character="14" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

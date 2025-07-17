@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG" Title="类型 &lt;remarks&gt; 缺少结构化标签" Count="9" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709134208" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709134208.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_016_CleanMode.cs</FilePath>
+            <Location Line="4" Character="5" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

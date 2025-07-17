@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="1" />
+      <Diagnostic Id="PROJECT_TYPE_DUPLICATE_REMARKS" Title="类型XML注释中存在重复的 &lt;remarks&gt; 标签" Count="1" />
+      <Diagnostic Id="PROJECT_TYPE_DUPLICATE_SUMMARY" Title="类型XML注释中存在重复的 &lt;summary&gt; 标签" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250717142612" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250717142612.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs</FilePath>
+            <Location Line="1671" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_DUPLICATE_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型XML注释中存在重复的 &lt;remarks&gt; 标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs</FilePath>
+            <Location Line="1" Character="4" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_DUPLICATE_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>类型XML注释中存在重复的 &lt;summary&gt; 标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_TypeMissingRemarks.cs</FilePath>
+            <Location Line="1" Character="4" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

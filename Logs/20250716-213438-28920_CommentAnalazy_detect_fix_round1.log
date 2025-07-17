@@ -1,0 +1,8 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716213438.csproj'...
+Analyze 'TempProject_20250716213438'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_TypeMissingSummary.cs(21,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'Value' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716213438.csproj' (in 2.9 s)
+
+1 PROJECT_MEMBER_NO_COMMENT_BLOCK 成员缺少XML注释块
+
+1 diagnostic found

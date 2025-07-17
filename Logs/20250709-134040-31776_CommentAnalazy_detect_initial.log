@@ -1,0 +1,14 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709134040.csproj'...
+Analyze 'TempProject_20250709134040'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs(8,1): error CS0106: 修饰符“public”对该项无效
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs(8,13): warning CS8321: 声明了本地函数“MethodA”，但从未使用过
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs(8,1): error CS8805: 使用顶级语句的程序必须是可执行文件。
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs(4,1): info PROJECT_CONDITIONAL_COMPILATION_WARNING: 文件 'TC_F_014_ConditionalCompilation.cs' 包含条件编译指令（if, endif），可能存在注释关联BUG。建议使用 -MultiEnvironment 参数进行多环境分析以获得更准确的结果。
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709134040.csproj' (in 2.8 s)
+
+1 CS0106                                  
+1 CS8321                                  已声明本地函数，但从未使用过
+1 CS8805                                  
+1 PROJECT_CONDITIONAL_COMPILATION_WARNING 检测到条件编译指令
+
+4 diagnostics found

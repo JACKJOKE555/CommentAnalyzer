@@ -1,0 +1,38 @@
+{
+  "Timestamp": "2025-07-17T06:31:22.3349035Z",
+  "Summary": {
+    "IssuesBefore": 3,
+    "IssuesAfter": 3,
+    "IssuesFixed": 0,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Success": true,
+      "FixesApplied": 2,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": [
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Line": 890,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    },
+    {
+      "Id": "PROJECT_TYPE_DUPLICATE_REMARKS",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Line": 1,
+      "Message": "\u7C7B\u578BXML\u6CE8\u91CA\u4E2D\u5B58\u5728\u91CD\u590D\u7684 \u003Cremarks\u003E \u6807\u7B7E"
+    },
+    {
+      "Id": "PROJECT_TYPE_DUPLICATE_SUMMARY",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_003_TypeMissingRemarks.cs",
+      "Line": 1,
+      "Message": "\u7C7B\u578BXML\u6CE8\u91CA\u4E2D\u5B58\u5728\u91CD\u590D\u7684 \u003Csummary\u003E \u6807\u7B7E"
+    }
+  ]
+}

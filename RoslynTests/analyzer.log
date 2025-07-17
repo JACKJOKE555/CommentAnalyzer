@@ -1,0 +1,7 @@
+'Dropleton.Tests.SmartFixTestClass' needs a documentation comment.
+'Dropleton.Tests.SmartFixTestClass.NoDocProperty' needs a documentation comment.
+'Dropleton.Tests.SmartFixTestClass.SummaryOnlyProperty' needs a documentation comment.
+'Dropleton.Tests.SmartFixTestClass.MethodWithNoDoc(int)' needs a documentation comment.
+'Dropleton.Tests.SmartFixTestClass.MethodWithMissingTags(string)' needs a documentation comment.
+'Dropleton.Tests.ISmartFixTest' needs a documentation comment.
+'Dropleton.Tests.ISmartFixTest.RunTest()' needs a documentation comment. 

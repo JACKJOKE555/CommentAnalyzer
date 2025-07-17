@@ -1,0 +1,26 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716220858.csproj'...
+Analyze 'TempProject_20250716220858'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(4,14): warning PROJECT_TYPE_MISSING_REMARKS: ClassDeclaration 'TestClassWithSummaryOnly' 的XML注释中缺少 <remarks> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '架构层级:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '模块:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '继承/实现关系:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '依赖:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '扩展点:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '特性:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '重要逻辑:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '数据流:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(18,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithPartialRemarks' 的 <remarks> 中缺少必需的结构化标签: '使用示例:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '模块:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '继承/实现关系:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '依赖:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '扩展点:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '特性:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '重要逻辑:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '数据流:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_020_IncrementalTypeRemarks.cs(35,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClassWithIncompleteRemarks' 的 <remarks> 中缺少必需的结构化标签: '使用示例:'
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250716220858.csproj' (in 3.3 s)
+
+ 1 PROJECT_TYPE_MISSING_REMARKS     类型缺少 <remarks>
+17 PROJECT_TYPE_MISSING_REMARKS_TAG 类型 <remarks> 缺少结构化标签
+
+18 diagnostics found

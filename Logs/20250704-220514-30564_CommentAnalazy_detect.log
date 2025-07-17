@@ -1,0 +1,74 @@
+﻿Roslynator Version: 0.10.1.0
+Roslynator Target Framework: .NET Framework
+Roslyn Version: 4.12.0.0
+MSBuild location is 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin'
+Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250704220514.csproj'...
+  Evaluate  00:01.16  TempProject_20250704220514.csproj
+  Build     00:00.62  TempProject_20250704220514.csproj
+  Resolve   00:00.32  TempProject_20250704220514.csproj (netstandard2.1)
+Analyze 'TempProject_20250704220514'
+  1 supported diagnostic with prefix 'PROJECT_CONDITIONAL_COMPILATION_' (PROJECT_CONDITIONAL_COMPILATION_WARNING)
+  5 supported diagnostics with prefix 'PROJECT_MEMBER_MISSING_' (PROJECT_MEMBER_MISSING_PARAM, PROJECT_MEMBER_MISSING_REMARKS, PROJECT_MEMBER_MISSING_RETURNS, PROJECT_MEMBER_MISSING_SUMMARY, PROJECT_MEMBER_MISSING_TYPEPARAM)
+  1 supported diagnostic with prefix 'PROJECT_MEMBER_NO_COMMENT_' (PROJECT_MEMBER_NO_COMMENT_BLOCK)
+  2 supported diagnostics with prefix 'PROJECT_TYPE_MISSING_' (PROJECT_TYPE_MISSING_REMARKS, PROJECT_TYPE_MISSING_SUMMARY)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_MISSING_REMARKS_' (PROJECT_TYPE_MISSING_REMARKS_TAG)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_MULTI_ENUM_' (PROJECT_TYPE_MULTI_ENUM_FILE)
+  2 supported diagnostics with prefix 'PROJECT_TYPE_NESTED_' (PROJECT_TYPE_NESTED_ENUM, PROJECT_TYPE_NESTED_TYPE)
+  1 supported diagnostic with prefix 'PROJECT_TYPE_NO_COMMENT_' (PROJECT_TYPE_NO_COMMENT_BLOCK)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(507,24): error CS0103: 当前上下文中不存在名称“QueryShape”
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(511,26): error CS0103: 当前上下文中不存在名称“ObiUtils”
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(511,46): error CS0103: 当前上下文中不存在名称“ObiUtils”
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(623,32): error CS0103: 当前上下文中不存在名称“ObiSolver”
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(655,20): error CS0103: 当前上下文中不存在名称“ObiSolver”
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(1,7): error CS0246: 未能找到类型或命名空间名“Obi”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(28,44): error CS0246: 未能找到类型或命名空间名“IObiParticleReader”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(28,64): error CS0246: 未能找到类型或命名空间名“IObiParticleWriter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(28,84): error CS0246: 未能找到类型或命名空间名“IObiEmitterProvider”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(47,17): error CS0246: 未能找到类型或命名空间名“ObiSolver”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(68,32): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(68,78): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(104,36): error CS0246: 未能找到类型或命名空间名“ParticleCache”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(104,91): error CS0246: 未能找到类型或命名空间名“ParticleCache”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(119,44): error CS0246: 未能找到类型或命名空间名“ParticleCache”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(233,16): error CS0246: 未能找到类型或命名空间名“ParticleCache”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(263,50): error CS0246: 未能找到类型或命名空间名“ForceData”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(298,16): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(322,37): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(505,29): error CS0246: 未能找到类型或命名空间名“QueryShape”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(519,37): error CS0246: 未能找到类型或命名空间名“AffineTransform”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(527,44): error CS0246: 未能找到类型或命名空间名“ObiSolver”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(527,62): error CS0246: 未能找到类型或命名空间名“ObiNativeQueryResultList”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(568,38): error CS0246: 未能找到类型或命名空间名“ObiActor”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(568,54): error CS0246: 未能找到类型或命名空间名“ObiActorBlueprint”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(594,40): error CS0246: 未能找到类型或命名空间名“ObiActor”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(594,56): error CS0246: 未能找到类型或命名空间名“ObiActorBlueprint”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(621,42): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(628,29): error CS0246: 未能找到类型或命名空间名“ParticleCache”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(652,17): error CS0246: 未能找到类型或命名空间名“ObiSolver”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(681,58): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(713,16): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(715,45): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(734,16): error CS0246: 未能找到类型或命名空间名“ObiSolver”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(736,45): error CS0246: 未能找到类型或命名空间名“ObiSolver”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(760,16): error CS0246: 未能找到类型或命名空间名“ObiFluidEmitterBlueprint”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(760,61): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(763,66): error CS0246: 未能找到类型或命名空间名“ObiFluidEmitterBlueprint”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(789,16): error CS0246: 未能找到类型或命名空间名“ObiParticleGroup”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(789,68): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(818,16): error CS0246: 未能找到类型或命名空间名“ObiParticleGroup”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(818,55): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(847,21): error CS0246: 未能找到类型或命名空间名“ObiParticleGroup”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(847,60): error CS0246: 未能找到类型或命名空间名“ObiEmitter”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(851,33): error CS0246: 未能找到类型或命名空间名“ObiParticleGroup”(是否缺少 using 指令或程序集引用?)
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(527,44): warning PROJECT_MEMBER_MISSING_PARAM: 方法 'OnSpatialQueryResults' 的XML注释中缺少对参数 'solver' 的 <param> 注释
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(527,62): warning PROJECT_MEMBER_MISSING_PARAM: 方法 'OnSpatialQueryResults' 的XML注释中缺少对参数 'results' 的 <param> 注释
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(499,22): warning PROJECT_MEMBER_MISSING_REMARKS: MethodDeclaration 'Update' 的XML注释中缺少 <remarks> 标签
+  D:\Unity\Project\Dropleton\Assets\Scripts\Bridge\ObiProxy\Implementation\ObiProxy.cs(527,22): warning PROJECT_MEMBER_MISSING_REMARKS: MethodDeclaration 'OnSpatialQueryResults' 的XML注释中缺少 <remarks> 标签
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250704220514.csproj' (in 4.7 s)
+
+ 5 CS0103                         
+40 CS0246                         
+ 2 PROJECT_MEMBER_MISSING_PARAM   方法缺少 <param> 注释
+ 2 PROJECT_MEMBER_MISSING_REMARKS 成员缺少 <remarks>
+
+49 diagnostics found

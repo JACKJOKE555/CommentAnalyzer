@@ -1,0 +1,14 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709121830.csproj'...
+Analyze 'TempProject_20250709121830'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_008_MemberMissingParam.cs(9,20): warning PROJECT_MEMBER_MISSING_PARAM: 方法 'Add' 的XML注释中缺少对参数 'a' 的 <param> 注释
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_008_MemberMissingParam.cs(9,27): warning PROJECT_MEMBER_MISSING_PARAM: 方法 'Add' 的XML注释中缺少对参数 'b' 的 <param> 注释
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_008_MemberMissingParam.cs(9,12): warning PROJECT_MEMBER_MISSING_RETURNS: 方法 'Add' 有返回值，但其XML注释中缺少 <returns> 标签
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_008_MemberMissingParam.cs(1,14): warning PROJECT_TYPE_NO_COMMENT_BLOCK: ClassDeclaration 'TestClass8' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_008_MemberMissingParam.cs(12,14): warning PROJECT_TYPE_NO_COMMENT_BLOCK: Delegate 'MyDelegate' 完全没有XML注释块
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709121830.csproj' (in 3.6 s)
+
+2 PROJECT_MEMBER_MISSING_PARAM   方法缺少 <param> 注释
+1 PROJECT_MEMBER_MISSING_RETURNS 方法缺少 <returns> 注释
+2 PROJECT_TYPE_NO_COMMENT_BLOCK  类型缺少XML注释块
+
+5 diagnostics found

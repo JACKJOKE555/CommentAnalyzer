@@ -1,0 +1,18 @@
+﻿Loading project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709004313.csproj'...
+Analyze 'TempProject_20250709004313'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(9,16): warning PROJECT_MEMBER_NO_COMMENT_BLOCK: FieldDeclaration 'Value' 完全没有XML注释块
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '架构层级:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '模块:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '继承/实现关系:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '依赖:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '扩展点:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '特性:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '重要逻辑:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '数据流:'
+  D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_RemarksMissingTag.cs(4,5): warning PROJECT_TYPE_MISSING_REMARKS_TAG: ClassDeclaration 'TestClass4' 的 <remarks> 中缺少必需的结构化标签: '使用示例:'
+Analyzed project 'D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709004313.csproj' (in 4.7 s)
+
+ 1 PROJECT_MEMBER_NO_COMMENT_BLOCK  成员缺少XML注释块
+ 9 PROJECT_TYPE_MISSING_REMARKS_TAG 类型 <remarks> 缺少结构化标签
+
+10 diagnostics found

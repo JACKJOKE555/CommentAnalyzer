@@ -1,0 +1,19 @@
+{
+  "Files": [
+    {
+      "Modified": true,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_002_TypeMissingSummary.cs"
+    }
+  ],
+  "JobID": "20250707-230347-22512",
+  "Timestamp": "2025-07-07 23:04:54",
+  "FinalDiagnostics": [],
+  "Summary": {
+    "FilesProcessed": 1,
+    "IssuesAfter": 0,
+    "FixConverged": true,
+    "RoundsExecuted": 2,
+    "IssuesBefore": 11
+  },
+  "Mode": "fix"
+}

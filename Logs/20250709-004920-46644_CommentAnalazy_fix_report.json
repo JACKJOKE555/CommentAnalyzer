@@ -1,0 +1,44 @@
+{
+  "Timestamp": "2025-07-08T16:49:46.4087151Z",
+  "Summary": {
+    "IssuesBefore": 5,
+    "IssuesAfter": 4,
+    "IssuesFixed": 1,
+    "FilesProcessed": 1,
+    "FilesSuccessful": 1
+  },
+  "FileResults": [
+    {
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs",
+      "Success": true,
+      "FixesApplied": 5,
+      "ErrorMessage": ""
+    }
+  ],
+  "RemainingIssues": [
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs",
+      "Line": 18,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    },
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs",
+      "Line": 19,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    },
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs",
+      "Line": 20,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    },
+    {
+      "Id": "PROJECT_MEMBER_NO_COMMENT_BLOCK",
+      "File": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_005_MemberNoCommentBlock.cs",
+      "Line": 21,
+      "Message": "\u6210\u5458\u7F3A\u5C11XML\u6CE8\u91CA\u5757"
+    }
+  ]
+}

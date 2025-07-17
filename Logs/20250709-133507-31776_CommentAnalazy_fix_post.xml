@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM" Title="方法缺少 &lt;param&gt; 注释" Count="1" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS" Title="方法缺少 &lt;returns&gt; 注释" Count="1" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM" Title="方法缺少 &lt;typeparam&gt; 注释" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709133507" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709133507.csproj">
+        <Diagnostics>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_010_MemberMissingTypeParam.cs</FilePath>
+            <Location Line="24" Character="31" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_010_MemberMissingTypeParam.cs</FilePath>
+            <Location Line="24" Character="12" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_010_MemberMissingTypeParam.cs</FilePath>
+            <Location Line="24" Character="28" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

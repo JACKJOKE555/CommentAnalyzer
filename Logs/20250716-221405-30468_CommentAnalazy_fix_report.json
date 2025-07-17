@@ -1,0 +1,26 @@
+{
+  "Mode": "fix",
+  "Summary": {
+    "FixConverged": true,
+    "RoundsExecuted": 1,
+    "FilesProcessed": 1,
+    "IssuesBefore": 4,
+    "IssuesAfter": 4
+  },
+  "Files": [
+    {
+      "Modified": false,
+      "Path": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_021_SimpleTypeRemarks.cs"
+    }
+  ],
+  "JobID": "20250716-221405-30468",
+  "FinalDiagnostics": [
+    {
+      "Rule": "PROJECT_TYPE_MISSING_REMARKS",
+      "Line": 4,
+      "Message": "ClassDeclaration 'SimpleTestClass' 的XML注释中缺少 <remarks> 标签",
+      "FilePath": "D:\\Unity\\Project\\Dropleton\\CustomPackages\\CommentAnalyzer\\Tests\\FixerTestCases\\TC_F_021_SimpleTypeRemarks.cs"
+    }
+  ],
+  "Timestamp": "2025-07-16 22:14:37"
+}

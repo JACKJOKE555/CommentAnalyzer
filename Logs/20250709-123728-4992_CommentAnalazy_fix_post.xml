@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="CS0106" Title="" Count="1">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0106)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS8321" Title="已声明本地函数，但从未使用过" Count="1">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS8321)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS8805" Title="" Count="1">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS8805)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="PROJECT_CONDITIONAL_COMPILATION_WARNING" Title="检测到条件编译指令" Count="1" />
+    </Summary>
+    <Projects>
+      <Project Name="TempProject_20250709123728" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Temp\TempProject_20250709123728.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CS0106">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs</FilePath>
+            <Location Line="8" Character="1" />
+          </Diagnostic>
+          <Diagnostic Id="CS8321">
+            <Severity>Warning</Severity>
+            <Message>已声明本地函数，但从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs</FilePath>
+            <Location Line="8" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CS8805">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs</FilePath>
+            <Location Line="8" Character="1" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_CONDITIONAL_COMPILATION_WARNING">
+            <Severity>Info</Severity>
+            <Message>检测到条件编译指令</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_014_ConditionalCompilation.cs</FilePath>
+            <Location Line="4" Character="1" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>

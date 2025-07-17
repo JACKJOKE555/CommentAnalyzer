@@ -1,0 +1,1222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roslynator>
+  <CodeAnalysis>
+    <Summary>
+      <Diagnostic Id="CA1050" Title="在命名空间中声明类型" Count="14">
+        <Description>在命名空间中声明类型以防止名称冲突，并作为一种组织对象层次结构中相关类型的方式。</Description>
+        <HelpLink>https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1050</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CA1821" Title="移除空终结器" Count="2">
+        <Description>应尽可能避免使用终结器，避免跟踪对象生存期时产生额外的性能开销。</Description>
+        <HelpLink>https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1821</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CA1822" Title="将成员标记为 static" Count="13">
+        <Description>不访问实例数据或调用实例方法的成员可标记为 static。将方法标记为 static 后，编译器将向这些成员发出非虚拟调用站点。这样可使对性能比较敏感的代码获得显著的性能提升。</Description>
+        <HelpLink>https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0067" Title="事件从未使用过" Count="6">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0067)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0101" Title="" Count="9">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0101)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0111" Title="" Count="9">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0111)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0121" Title="" Count="2">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0121)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0557" Title="" Count="1">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0557)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="CS0649" Title="从未对字段赋值，字段将一直保持其默认值" Count="2">
+        <HelpLink>https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&amp;k=k(CS0649)</HelpLink>
+      </Diagnostic>
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM" Title="方法缺少 &lt;param&gt; 注释" Count="15" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS" Title="成员缺少 &lt;remarks&gt;" Count="7" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS" Title="方法缺少 &lt;returns&gt; 注释" Count="6" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_SUMMARY" Title="成员缺少 &lt;summary&gt;" Count="4" />
+      <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM" Title="方法缺少 &lt;typeparam&gt; 注释" Count="6" />
+      <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK" Title="成员缺少XML注释块" Count="36" />
+      <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS" Title="类型缺少 &lt;remarks&gt;" Count="7" />
+      <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG" Title="类型 &lt;remarks&gt; 缺少结构化标签" Count="35" />
+      <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK" Title="类型缺少XML注释块" Count="21" />
+    </Summary>
+    <Projects>
+      <Project Name="TC_F_CleanFix_001_ClosedLoop" FilePath="D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.csproj">
+        <Diagnostics>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="8" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CS0649">
+            <Severity>Warning</Severity>
+            <Message>从未对字段赋值，字段将一直保持其默认值</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="14" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="CS0649">
+            <Severity>Warning</Severity>
+            <Message>从未对字段赋值，字段将一直保持其默认值</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="19" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="8" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="12" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="14" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="19" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="24" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="6" Character="11" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="17" Character="12" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="22" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_001_TypeNoCommentBlock.cs</FilePath>
+            <Location Line="27" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="97" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="CA1821">
+            <Severity>Info</Severity>
+            <Message>移除空终结器</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="55" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="17" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="29" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="38" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="42" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="100" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="47" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="49" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="109" Character="38" />
+          </Diagnostic>
+          <Diagnostic Id="CS0121">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="61" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="17" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="29" Character="49" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="29" Character="63" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="29" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;summary&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="17" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;summary&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="22" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;summary&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="25" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="34" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="36" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="38" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="42" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="47" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="49" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="51" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="55" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="59" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="64" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="69" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="82" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="87" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="100" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="103" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="106" Character="19" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="109" Character="38" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="11" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="76" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="78" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="80" Character="19" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="85" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="90" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_002_MemberMissingSummary.cs</FilePath>
+            <Location Line="97" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="54" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="63" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="56" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="66" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_SUMMARY">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;summary&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="48" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="16" Character="51" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="22" Character="48" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_003_GenericMethod.cs</FilePath>
+            <Location Line="9" Character="9" />
+          </Diagnostic>
+          <Diagnostic Id="CA1821">
+            <Severity>Info</Severity>
+            <Message>移除空终结器</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="37" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="15" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="20" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="26" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="29" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="6" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="62" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="65" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="68" Character="19" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="74" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="80" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="15" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="20" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="32" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="37" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="42" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="54" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="76" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="CS0121">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="44" Character="24" />
+          </Diagnostic>
+          <Diagnostic Id="CS0557">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="48" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="9" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="12" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="15" Character="21" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="20" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="26" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="29" Character="37" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="32" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="37" Character="10" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="42" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="48" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="54" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="70" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="76" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="6" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="62" Character="26" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="65" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="68" Character="19" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="74" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_004_AllMemberTypes.cs</FilePath>
+            <Location Line="80" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CS0067">
+            <Severity>Warning</Severity>
+            <Message>事件从未使用过</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="45" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="9" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="52" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="CS0101">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CS0111">
+            <Severity>Error</Severity>
+            <Message></Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="34" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="48" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="35" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="52" Character="41" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="52" Character="57" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="42" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="51" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="33" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="39" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="45" Character="29" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="15" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="52" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_RETURNS">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;returns&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="24" Character="32" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_TYPEPARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;typeparam&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="39" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="9" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="52" Character="28" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_006_IncrementalFix.cs</FilePath>
+            <Location Line="58" Character="23" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="19" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="28" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="37" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="8" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS_TAG">
+            <Severity>Warning</Severity>
+            <Message>类型 &lt;remarks&gt; 缺少结构化标签</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_007_RemarksIncrementalFix.cs</FilePath>
+            <Location Line="24" Character="5" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="8" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="15" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="18" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="21" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="24" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>成员缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="11" Character="20" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="8" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="15" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="18" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="21" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_NO_COMMENT_BLOCK">
+            <Severity>Warning</Severity>
+            <Message>类型缺少XML注释块</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_Clean_001_RemoveAllXmlDoc.cs</FilePath>
+            <Location Line="24" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="8" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="18" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="21" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="24" Character="13" />
+          </Diagnostic>
+          <Diagnostic Id="CA1050">
+            <Severity>Info</Severity>
+            <Message>在命名空间中声明类型</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="27" Character="22" />
+          </Diagnostic>
+          <Diagnostic Id="CA1822">
+            <Severity>Info</Severity>
+            <Message>将成员标记为 static</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="14" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_PARAM">
+            <Severity>Warning</Severity>
+            <Message>方法缺少 &lt;param&gt; 注释</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="27" Character="43" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="11" Character="16" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_MEMBER_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>成员缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="14" Character="17" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="8" Character="14" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="18" Character="15" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="21" Character="18" />
+          </Diagnostic>
+          <Diagnostic Id="PROJECT_TYPE_MISSING_REMARKS">
+            <Severity>Warning</Severity>
+            <Message>类型缺少 &lt;remarks&gt;</Message>
+            <FilePath>D:\Unity\Project\Dropleton\CustomPackages\CommentAnalyzer\Tests\FixerTestCases\TC_F_CleanFix_001_ClosedLoop.cs</FilePath>
+            <Location Line="27" Character="22" />
+          </Diagnostic>
+        </Diagnostics>
+      </Project>
+    </Projects>
+  </CodeAnalysis>
+</Roslynator>
